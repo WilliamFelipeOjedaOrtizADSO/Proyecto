@@ -7,41 +7,52 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <img src="logo.png" alt="Logo" class="logo">
-        <h2>Registro</h2>
-        <form id="registerForm">
-            <div class="input-group">
-                <label for="tipoDocumento">Documento</label>
-                <select type="text" id="nuevoDocumento" required>
+    <div class="contenedor">
+        <img src="logo.png" alt="Logo" class="contenedor__logo">
+        <h2 class="contenedor__titulo">Registro</h2>
+        <form id="formulario-registro" class="formulario">
+            <div class="formulario__grupo">
+                <label for="TipoDocumento" class="formulario__label">Tipo de Documento</label>
+                <select class="formulario__input" id="TipoDocumento">
+                    <option value="">Seleccione su documento</option>
                     <option value="TI">Tarjeta de identidad</option>
-                    <option value="CC">Cedula de ciudadania</option>
+                    <option value="CC">Cédula de ciudadanía</option>
+                    <option value="CE">Cédula de extranjería</option>
                 </select>
             </div>
-            <div class="input-group">
-                <label for="nuevoDocumento">Documento</label>
-                <input type="text" id="nuevoDocumento" required>
+            <div class="formulario__grupo">
+                <label for="nuevoDocumento" class="formulario__label">Documento</label>
+                <input autocomplete="off" type="text" id="nuevoDocumento" class="formulario__input">
             </div>
-            <div class="input-group">
-                <label for="nuevaContrasena">Contraseña</label>
-                <input type="password" id="nuevaContrasena" required>
+            <div class="formulario__grupo">
+                <label for="nuevoNombre" class="formulario__label">Nombre y Apellido</label>
+                <input autocomplete="off" type="text" id="nombre" class="formulario__input">
             </div>
-            <div class="input-group">
-                <label for="ficha">N° de Ficha</label>
-                <input type="number" id="ficha" required>
+            <div class="formulario__grupo">
+                <label for="nuevaContrasena" class="formulario__label">Contraseña</label>
+                <input autocomplete="off" type="password" id="nuevaContrasena" class="formulario__input">
             </div>
-            <div class="input-group">
-                <label for="telefono">N° de Teléfono</label>
-                <input type="number" id="telefono" required>
+            <div class="formulario__grupo">
+                <label for="ficha" class="formulario__label">N° de Ficha</label>
+                <input autocomplete="off" type="text" id="ficha" class="formulario__input">
             </div>
-            <div class="input-group">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" required>
+            <div class="formulario__grupo">
+                <label for="telefono" class="formulario__label">N° de Teléfono</label>
+                <input autocomplete="off" type="text" id="telefono" class="formulario__input">
             </div>
-            <button type="submit">Registrarse</button>
+            <div class="formulario__grupo">
+                <label for="email" class="formulario__label">Correo Electrónico</label>
+                <input autocomplete="off" type="text" id="email" class="formulario__input">
+            </div>
+            <button type="submit" class="formulario__boton">Registrarse</button>
+            <div class="warnings">
+                <p class="parrafo__warning" id="warnings"></p>
+            </div>
         </form>
-        <p>¿Ya tienes una cuenta? <a href="index.html">Inicia sesión aquí</a></p>
+        <div class="contenedor__pie">
+            <p>¿Ya tienes una cuenta? <a href="index.html">Inicia sesión aquí</a></p>
+        </div>
     </div>
-    <script src="script.js"></script>
+    <script src="register.js"></script>
 </body>
 </html>

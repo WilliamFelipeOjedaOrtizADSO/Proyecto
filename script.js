@@ -1,35 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    const registerForm = document.getElementById('registerForm');
-    const resetPasswordForm = document.getElementById('resetPasswordForm');
+const documento = document.getElementById("Documento");
+const tipodoc = document.getElementById("TipoDocumento")
+const nombre = document.getElementById("nombre");
+const password = document.getElementById("password");
+const form = document.getElementById("formulario-registro");
+const parrafo = document.getElementById("warnings");
 
-    if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            console.log(`Usuario: ${username}, Contraseña: ${password}`);
-            // Aquí agregarías la lógica para autenticar al usuario
-        });
+// Validar formulario register----------------------------------------------------------
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+    let warnings = "";
+    let entrar = false;
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+    parrafo.innerHTML = "";
+    
+    if (documento.value.length > 12 || documento.value.length == "") {
+        warnings += `El documento no es válido <br>`;
+        entrar = true;
     }
 
-    if (registerForm) {
-        registerForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const newUsername = document.getElementById('newUsername').value;
-            const newPassword = document.getElementById('newPassword').value;
-            const email = document.getElementById('email').value;
-            console.log(`Nuevo Usuario: ${newUsername}, Contraseña: ${newPassword}, Email: ${email}`);
-            // Aquí agregarías la lógica para registrar al usuario
-        });
+    if (nombre.value.length > 25 || nombre.value.length == "") {
+        warnings += `El nombre no es válido <br>`;
+        entrar = true;
     }
 
-    if (resetPasswordForm) {
-        resetPasswordForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const resetEmail = document.getElementById('resetEmail').value;
-            console.log(`Correo para restablecer: ${resetEmail}`);
-            // Aquí agregarías la lógica para enviar el email de restablecimiento
-        });
+    if (tipodoc.value == "") {
+        warnings += `Por favor escoge un tipo de documento<br>`
+        entrar = true
     }
-});
+    if (password.value.length < 8 || password.value.length == "") {
+        warnings += `La contraseña no es válida <br>`;
+        entrar = true;
+    }
+})

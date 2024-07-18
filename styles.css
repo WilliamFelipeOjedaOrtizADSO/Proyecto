@@ -1,13 +1,14 @@
 :root {
-    --primary-color: #4CAF50;
-    --secondary-color: #f2f2f2;
-    --text-color: #333;
+    --color-primario: #4CAF50;
+    --color-secundario: #f2f2f2;
+    --color-texto: #333;
+    --error: rgb(221, 6, 6);
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +18,7 @@ body {
     box-sizing: border-box;
 }
 
-.container {
+.contenedor {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -26,28 +27,28 @@ body {
     width: 100%;
 }
 
-.logo {
+.contenedor__logo {
     display: block;
     margin: 0 auto 20px;
     max-width: 100px;
 }
 
-h2 {
+.contenedor__titulo {
     margin-bottom: 20px;
-    color: var(--primary-color);
+    color: var(--color-primario);
     text-align: center;
 }
 
-.input-group {
+.formulario__grupo {
     margin-bottom: 15px;
 }
 
-.input-group label {
+.formulario__label {
     display: block;
     margin-bottom: 5px;
 }
 
-.input-group input {
+.formulario__input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -55,8 +56,8 @@ h2 {
     box-sizing: border-box;
 }
 
-button {
-    background-color: var(--primary-color);
+.formulario__boton {
+    background-color: var(--color-primario);
     color: #fff;
     padding: 10px;
     border: none;
@@ -66,36 +67,54 @@ button {
     box-sizing: border-box;
 }
 
-button:hover {
-    background-color: darken(var(--primary-color), 10%);
+.formulario__boton:hover {
+    background-color: darken(var(--color-primario), 10%);
 }
 
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    display: block;
-    text-align: center;
+.warnings {
     margin-top: 10px;
-}
-
-a:hover {
+    text-align: center;
+    color: var(--error);
+    font-weight: bold;
     text-decoration: underline;
 }
 
+.parrafo__warning{
+    line-height: 27px;
+}
+
+.contenedor__pie {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contenedor__pie a {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+.contenedor__pie a:hover {
+    text-decoration: underline;
+}
+
+.error{
+    border: solid 1px #fc2424
+ }
+
 @media (max-width: 600px) {
-    .container {
+    .contenedor {
         padding: 15px;
     }
 
-    .logo {
+    .contenedor__logo {
         max-width: 80px;
     }
 
-    h2 {
+    .contenedor__titulo {
         font-size: 1.5rem;
     }
 
-    button {
+    .formulario__boton {
         padding: 8px;
     }
 }
