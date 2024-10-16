@@ -16,7 +16,7 @@ body {
     display: flex; /* Usa flexbox para centrar el contenido */
     justify-content: center; /* Centra horizontalmente el contenido */
     align-items: center; /* Centra verticalmente el contenido */
-    height: 100%; /* Altura completa de la ventana del navegador */
+    height: 100vh; /* Usa el 100% de la altura de la ventana */
     margin: 0; /* Elimina márgenes por defecto */
     padding: 20px; /* Espacio interno */
     box-sizing: border-box; /* Incluye el padding y el borde en el ancho y alto del elemento */
@@ -24,7 +24,6 @@ body {
 
 /* Estilos para el contenedor principal del formulario */
 .contenedor {
-    height: 100%;
     background-color: #fff; /* Color de fondo blanco */
     padding: 20px; /* Espacio interno */
     border-radius: 8px; /* Bordes redondeados */
@@ -217,4 +216,51 @@ body {
 /* Estilos para el checkbox dentro de la etiqueta */
 .checkbox-label input[type="checkbox"] {
     margin: 0; /* Elimina el margen por defecto */
+}
+
+
+
+/* Media queries para responsividad */
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 15px;
+    }
+
+    .contenedor__logo {
+        max-width: 70px; /* Ajusta el tamaño del logo en móviles */
+    }
+
+    .contenedor__titulo {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .contenedor {
+        max-width: 80%;
+        padding: 20px;
+    }
+
+    .contenedor__logo {
+        max-width: 90px;
+    }
+
+    .contenedor__titulo {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 901px) {
+    .contenedor {
+        max-width: 600px;
+        padding: 25px;
+    }
+
+    .contenedor__logo {
+        max-width: 100px;
+    }
+
+    .contenedor__titulo {
+        font-size: 2rem;
+    }
 }

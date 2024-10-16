@@ -280,6 +280,10 @@ async function verificarCasilleros() {
     });
 }
 
+document.getElementById('cerrar-sesion').addEventListener('click', function() {
+    window.location.href = 'cerrar_sesion.html';
+});
+
 // Ejecutar la verificación cada hora
 setInterval(verificarCasilleros, 60 * 60 * 1000);
 
@@ -288,3 +292,4 @@ verificarCasilleros();
 
 // Llamar a la función para mostrar los casilleros cuando se carga la página
 document.addEventListener('DOMContentLoaded', mostrarCasilleros);
+

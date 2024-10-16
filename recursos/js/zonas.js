@@ -65,3 +65,7 @@ async function mostrarZonas() {
 
 // Llamar a la función para mostrar las zonas cuando se carga la página
 document.addEventListener('DOMContentLoaded', mostrarZonas);
+
+document.getElementById('cerrar-sesion').addEventListener('click', function() {
+    window.location.href = 'index.html';
+});

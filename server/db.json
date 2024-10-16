@@ -185,15 +185,21 @@
       "casilleros": [
         {
           "codigo": "A1",
-          "ocupado": false,
-          "usuario": "",
-          "fechaOcupacion": "",
+          "ocupado": true,
+          "usuario": "123456789",
+          "fechaOcupacion": "2024-10-16T14:46:38.025Z",
           "historial": [
             {
               "usuario": "1095906420",
               "nombreUsuario": "William Ojeda",
               "fechaIngreso": "2024-10-16T03:55:33.835Z",
               "fechaLiberacion": "2024-10-16T03:55:58.165Z"
+            },
+            {
+              "usuario": "123456789",
+              "nombreUsuario": "Juan Pérez",
+              "fechaIngreso": "2024-10-16T14:46:38.025Z",
+              "fechaLiberacion": null
             }
           ],
           "reportes": [],
@@ -303,12 +309,14 @@
           "usuario": "",
           "fechaOcupacion": "",
           "historial": [],
-          "reportes": [{
-            "fechaReporte": "2024-10-15T15:30:00.000Z",
-            "motivo": "Casillero bloqueado",
-            "usuario": "100000557",
-            "nombreUsuario": "German Garmendia"
-          }],
+          "reportes": [
+            {
+              "fechaReporte": "2024-10-15T15:30:00.000Z",
+              "motivo": "Casillero bloqueado",
+              "usuario": "100000557",
+              "nombreUsuario": "German Garmendia"
+            }
+          ],
           "reportado": false
         },
         {
@@ -343,12 +351,14 @@
           "usuario": "",
           "fechaOcupacion": "",
           "historial": [],
-          "reportes": [{
-            "fechaReporte": "2024-10-16T10:00:00.000Z",
-            "motivo": "Casillero ocupado por más de 12 horas",
-            "usuario": "1095906420",
-            "nombreUsuario": "William Ojeda"
-          }],
+          "reportes": [
+            {
+              "fechaReporte": "2024-10-16T10:00:00.000Z",
+              "motivo": "Casillero ocupado por más de 12 horas",
+              "usuario": "1095906420",
+              "nombreUsuario": "William Ojeda"
+            }
+          ],
           "reportado": false
         },
         {
