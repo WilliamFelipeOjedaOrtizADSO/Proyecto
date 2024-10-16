@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Estudiantes</title>
+    <link rel="stylesheet" href="recursos/css/listaestud.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Lista de Estudiantes</h2>
+
+        <!-- Controles de filtro -->
+        <div class="filtros">
+            <select id="filtroSeleccionado">
+                <option value="nombre">Filtrar por Nombre</option>
+                <option value="ficha">Filtrar por Ficha</option>
+                <option value="email">Filtrar por Email</option>
+                <option value="telefono">Filtrar por Teléfono</option>
+                <option value="documento">Filtrar por Documento</option>
+                <option value="tipoDocumento">Filtrar por Tipo de Documento</option>
+            </select>
+            <input type="text" id="valorFiltro" placeholder="Ingresa el valor...">
+            <button id="filtrarBtn">Filtrar</button>
+        </div>
+
+        <!-- Tabla de estudiantes -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ficha</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Documento</th>
+                    <th>Tipo de Documento</th>
+                </tr>
+            </thead>
+            <tbody id="tablaEstudiantes">
+                <!-- Aquí se insertarán las filas de la tabla -->
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module" src="recursos/js/listaestud.js"></script>
+</body>
+</html>

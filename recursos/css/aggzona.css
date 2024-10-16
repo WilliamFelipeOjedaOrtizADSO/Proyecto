@@ -1,0 +1,147 @@
+/* aggzona.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #343a40;
+}
+
+.contenedor-principal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.formulario-contenedor,
+.filtros-contenedor,
+.lista-zonas-contenedor {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex: 1 1 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input,
+form select {
+    padding: 8px;
+    font-size: 14px;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #28A745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+#mensaje {
+    margin-top: 10px;
+    color: green;
+    font-weight: bold;
+}
+
+button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+button:first-child {
+    background-color: #FFC107;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+button:first-child:hover {
+    background-color: #E0A800;
+}
+
+button:last-child {
+    background-color: #DC3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+button:last-child:hover {
+    background-color: #C82333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #007BFF;
+    color: white;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.filtros-contenedor label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.filtros-contenedor input {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+}
+
+#filtrar-btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #17A2B8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#filtrar-btn:hover {
+    background-color: #117A8B;
+}

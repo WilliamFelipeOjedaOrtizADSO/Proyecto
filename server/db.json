@@ -1,0 +1,615 @@
+{
+  "roles": [
+    {
+      "id": "1",
+      "nombre": "usuario"
+    },
+    {
+      "id": "2",
+      "nombre": "administrador"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "tipoDocumento": "CC",
+      "documento": "123456789",
+      "nombre": "Juan Pérez",
+      "contrasena": "password123",
+      "ficha": "001",
+      "telefono": "3012345678",
+      "email": "juan@example.com",
+      "roleId": 1
+    },
+    {
+      "id": "2",
+      "tipoDocumento": "CC",
+      "documento": "1095906420",
+      "nombre": "William Ojeda",
+      "contrasena": "asereje12345",
+      "ficha": "2696521",
+      "telefono": "3028645315",
+      "email": "wfojeda@soy.sena.edu.co",
+      "roleId": 1
+    },
+    {
+      "id": "3",
+      "tipoDocumento": "CC",
+      "documento": "100000557",
+      "nombre": "German Garmendia",
+      "contrasena": "asereje12345",
+      "ficha": "2696521",
+      "telefono": "78995115",
+      "email": "gergang@sena.edu.co",
+      "roleId": 1
+    },
+    {
+      "id": "4",
+      "tipoDocumento": "CC",
+      "documento": "3333333333",
+      "nombre": "Fernan Floo",
+      "contrasena": "fernanelcrack123",
+      "ficha": "123456789",
+      "telefono": "321654987",
+      "email": "fernanelcrack@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "5",
+      "tipoDocumento": "TI",
+      "documento": "987654321",
+      "nombre": "Fernan Floo",
+      "contrasena": "holasoyfernan123",
+      "ficha": "456321789",
+      "telefono": "321654987",
+      "email": "crackcrj@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "6",
+      "tipoDocumento": "CE",
+      "documento": "852741963",
+      "nombre": "Rubén Doblas",
+      "contrasena": "criaturita1234",
+      "ficha": "85529374",
+      "telefono": "951753852",
+      "email": "omg@soy.sena.edu.co",
+      "roleId": 1
+    },
+    {
+      "id": "7",
+      "tipoDocumento": "CE",
+      "documento": "65478521",
+      "nombre": "Pepito Pérez",
+      "contrasena": "pp123456",
+      "ficha": "8299364",
+      "telefono": "9517535265",
+      "email": "pp@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "8",
+      "tipoDocumento": "CC",
+      "documento": "75365747",
+      "nombre": "Juan Juanito",
+      "contrasena": "jj123456",
+      "ficha": "456987654",
+      "telefono": "456456456",
+      "email": "jj@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "9",
+      "tipoDocumento": "TI",
+      "documento": "5465545454",
+      "nombre": "Samuel Deluque",
+      "contrasena": "vegetta777",
+      "ficha": "753654456",
+      "telefono": "852147852",
+      "email": "v777@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "10",
+      "tipoDocumento": "TI",
+      "documento": "965654654",
+      "nombre": "Willyrex",
+      "contrasena": "guapisimos1234",
+      "ficha": "85215647",
+      "telefono": "8574193",
+      "email": "willyrex@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "11",
+      "tipoDocumento": "TI",
+      "documento": "852147852",
+      "nombre": "Juanito Alcachofa",
+      "contrasena": "alcachofita123",
+      "ficha": "4567894357",
+      "telefono": "5487354646",
+      "email": "alcachofita@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "12",
+      "tipoDocumento": "TI",
+      "documento": "4141545",
+      "nombre": "Pedrito Alcachofa",
+      "contrasena": "alcachofita123",
+      "ficha": "4441455",
+      "telefono": "4747454",
+      "email": "caca@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "13",
+      "tipoDocumento": "CC",
+      "documento": "4527457",
+      "nombre": "Wa Wa",
+      "contrasena": "aaaaaaaa5464",
+      "ficha": "54165468",
+      "telefono": "241524565",
+      "email": "waaa@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "14",
+      "tipoDocumento": "CC",
+      "documento": "741185284",
+      "nombre": "Be Be",
+      "contrasena": "bebee123456",
+      "ficha": "852147823",
+      "telefono": "855247147",
+      "email": "bb@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "15",
+      "tipoDocumento": "CC",
+      "documento": "9514752846",
+      "nombre": "Aaaa Eeee",
+      "contrasena": "aaaaaaaa111111",
+      "ficha": "888885555",
+      "telefono": "222222221",
+      "email": "aaaaa@gmail.com",
+      "roleId": 1
+    }
+  ],
+  "zonas": [
+    {
+      "id": "A",
+      "nombre": "Zona A",
+      "filas": 3,
+      "columnas": 4,
+      "casilleros": [
+        {
+          "codigo": "A1",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [
+            {
+              "usuario": "1095906420",
+              "nombreUsuario": "William Ojeda",
+              "fechaIngreso": "2024-10-16T03:55:33.835Z",
+              "fechaLiberacion": "2024-10-16T03:55:58.165Z"
+            }
+          ],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "A2",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "A3",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "A4",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "A5",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "A6",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "A7",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "A8",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "nombre": "Zona B",
+      "filas": 2,
+      "columnas": 3,
+      "casilleros": [
+        {
+          "codigo": "B1",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "B2",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "B3",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "B4",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [{
+            "fechaReporte": "2024-10-15T15:30:00.000Z",
+            "motivo": "Casillero bloqueado",
+            "usuario": "100000557",
+            "nombreUsuario": "German Garmendia"
+          }],
+          "reportado": false
+        },
+        {
+          "codigo": "B5",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "B6",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "nombre": "Zona C",
+      "filas": 5,
+      "columnas": 5,
+      "casilleros": [
+        {
+          "codigo": "C1",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [{
+            "fechaReporte": "2024-10-16T10:00:00.000Z",
+            "motivo": "Casillero ocupado por más de 12 horas",
+            "usuario": "1095906420",
+            "nombreUsuario": "William Ojeda"
+          }],
+          "reportado": false
+        },
+        {
+          "codigo": "C2",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C3",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C4",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C5",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C6",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C7",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C8",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C9",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C10",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C11",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C12",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C13",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C14",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C15",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C16",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C17",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C18",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C19",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C20",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C21",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C22",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C23",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C24",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "C25",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "nombre": "Zona D",
+      "casilleros": [
+        {
+          "codigo": "D1",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "D2",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "D3",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        },
+        {
+          "codigo": "D4",
+          "ocupado": false,
+          "usuario": "",
+          "fechaOcupacion": "",
+          "historial": [],
+          "reportes": [],
+          "reportado": false
+        }
+      ]
+    }
+  ]
+}

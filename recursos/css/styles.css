@@ -1,0 +1,220 @@
+/* Definición de variables globales */
+:root {
+    --color-primario: #4CAF50; /* Color principal del sitio */
+    --color-secundario: #f2f2f2; /* Color de fondo secundario */
+    --color-texto: #333; /* Color del texto principal */
+    --error: rgb(221, 6, 6); /* Color para los mensajes de error */
+    --color-boton-hover: #45a049; /* Color del botón al pasar el cursor (hover) */
+    --color-boton-disabled: #c1c1c1; /* Color del botón cuando está deshabilitado */
+}
+
+/* Estilos globales para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Tipo de fuente del sitio */
+    background-color: var(--color-secundario); /* Color de fondo del cuerpo */
+    color: var(--color-texto); /* Color del texto */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    height: 100%; /* Altura completa de la ventana del navegador */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 20px; /* Espacio interno */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho y alto del elemento */
+}
+
+/* Estilos para el contenedor principal del formulario */
+.contenedor {
+    height: 100%;
+    background-color: #fff; /* Color de fondo blanco */
+    padding: 20px; /* Espacio interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para un efecto de profundidad */
+    max-width: 400px; /* Ancho máximo del contenedor */
+    width: 100%; /* Ancho completo del contenedor hasta el máximo */
+}
+
+/* Estilos para el logo en el contenedor */
+.contenedor__logo {
+    display: block; /* Hace que el logo sea un bloque */
+    margin: 0 auto 10px; /* Centra el logo horizontalmente y añade margen abajo */
+    max-width:50px; /* Ancho máximo del logo */
+}
+
+/* Estilos para el título del contenedor */
+.contenedor__titulo {
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: var(--color-primario); /* Color del texto del título */
+    text-align: center; /* Centra el título */
+}
+
+/* Estilos para los grupos de formulario */
+.formulario__grupo {
+    margin-bottom: 15px; /* Espacio debajo de cada grupo */
+}
+
+/* Estilos para las etiquetas de formulario */
+.formulario__label {
+    display: block; /* Hace que la etiqueta sea un bloque */
+    margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+}
+
+/* Estilos para los campos de entrada del formulario */
+.formulario__input {
+    width: 100%; /* Ancho completo del campo */
+    padding: 8px; /* Espacio interno del campo */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho del campo */
+}
+
+/* Estilos para el botón del formulario */
+.formulario__boton {
+    background-color: var(--color-primario); /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    padding: 10px; /* Espacio interno del botón */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+    width: 100%; /* Ancho completo del botón */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho del botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Estilos para el botón cuando está en hover (al pasar el cursor) */
+.formulario__boton:hover {
+    background-color: var(--color-boton-hover); /* Cambia el color de fondo al pasar el cursor */
+}
+
+/* Estilos para el botón cuando está deshabilitado */
+.formulario__boton:disabled {
+    background-color: var(--color-boton-disabled); /* Color de fondo para el botón deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor a uno que indica que no se puede hacer clic */
+}
+
+/* Estilos para el botón de texto (enlaces estilizados como botones) */
+.boton-texto {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: var(--color-primario); /* Color del texto del botón */
+    text-decoration: underline; /* Subraya el texto */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+    font-size: 1rem; /* Tamaño de la fuente del texto */
+    font-weight: bold; /* Texto en negrita */
+    padding: 0; /* Sin espacio interno adicional */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color del texto */
+}
+
+/* Estilos para el botón de texto cuando está en hover */
+.boton-texto:hover {
+    color: darken(var(--color-primario), 10%); /* Cambia el color del texto al pasar el cursor */
+    text-decoration: none; /* Elimina la subrayado del texto */
+}
+
+/* Estilos para los mensajes de advertencia */
+.warnings {
+    margin-top: 10px; /* Espacio arriba del contenedor de advertencias */
+    text-align: center; /* Centra el texto */
+    color: var(--error); /* Color del texto de advertencia */
+    font-weight: bold; /* Texto en negrita */
+    text-decoration: underline; /* Subraya el texto */
+}
+
+/* Estilos para el párrafo dentro del contenedor de advertencias */
+.parrafo__warning {
+    line-height: 27px; /* Altura de línea para mejorar la legibilidad */
+}
+
+/* Estilos para el pie de página del contenedor */
+.contenedor__pie {
+    text-align: center; /* Centra el texto */
+    margin-top: 20px; /* Espacio arriba del pie de página */
+}
+
+/* Estilos para los enlaces dentro del pie de página */
+.contenedor__pie a {
+    color: var(--color-primario); /* Color del texto del enlace */
+    text-decoration: none; /* Elimina la subrayado del texto del enlace */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Estilos para los enlaces dentro del pie de página cuando están en hover */
+.contenedor__pie a:hover {
+    text-decoration: underline; /* Subraya el texto del enlace al pasar el cursor */
+}
+
+/* Estilos para los campos de formulario con errores */
+.error {
+    border: solid 1px #fc2424; /* Borde rojo para indicar un error */
+}
+
+/* Estilos generales para dispositivos móviles */
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 15px;
+    }
+
+    .contenedor__logo {
+        max-width: 80px;
+    }
+
+    .contenedor__titulo {
+        font-size: 1.5rem;
+    }
+
+    .formulario__boton {
+        padding: 8px;
+    }
+}
+
+/* Estilos para tablets en orientación vertical y pantallas medianas */
+@media (min-width: 601px) and (max-width: 900px) {
+    .contenedor {
+        max-width: 80%;
+        padding: 20px;
+    }
+
+    .contenedor__logo {
+        max-width: 90px;
+    }
+
+    .contenedor__titulo {
+        font-size: 1.8rem;
+    }
+
+    .formulario__boton {
+        padding: 10px;
+    }
+}
+
+/* Estilos para pantallas grandes y escritorios */
+@media (min-width: 901px) {
+    .contenedor {
+        max-width: 600px;
+        padding: 25px;
+    }
+
+    .contenedor__logo {
+        max-width: 100px;
+    }
+
+    .contenedor__titulo {
+        font-size: 2rem;
+    }
+
+    .formulario__boton {
+        padding: 12px;
+    }
+}
+
+
+/* Nuevos estilos para el checkbox y su etiqueta */
+.checkbox-label {
+    display: flex; /* Usa flexbox para alinear el checkbox y el texto */
+    align-items: center; /* Alinea verticalmente el checkbox y el texto */
+    gap: 10px; /* Espacio entre el checkbox y el texto */
+}
+
+/* Estilos para el checkbox dentro de la etiqueta */
+.checkbox-label input[type="checkbox"] {
+    margin: 0; /* Elimina el margen por defecto */
+}

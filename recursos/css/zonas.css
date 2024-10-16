@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#zonas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.boton-zona {
+    width: 150px;
+    height: 150px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.boton-zona:hover {
+    opacity: 0.8;
+}

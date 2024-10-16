@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Casilleros</title>
+    <link rel="stylesheet" href="recursos/css/historial_casilleros.css">
+</head>
+<body>
+    <h1>Historial de Casilleros</h1>
+
+    <!-- Filtros -->
+    <div id="filtros">
+        <label for="fechaInicio">Fecha Inicio:</label>
+        <input type="date" id="fechaInicio">
+        <label for="fechaFin">Fecha Fin:</label>
+        <input type="date" id="fechaFin">
+        <label for="zonaSelect">Zona:</label>
+        <select id="zonaSelect">
+            <!-- Opciones cargadas dinámicamente -->
+        </select>
+        <label for="codigoCasillero">Código de Casillero:</label>
+        <input type="text" id="codigoCasillero">
+        <button id="filtrarBtn">Filtrar</button>
+    </div>
+
+    <!-- Tabla de historial -->
+    <table id="historialTable">
+        <thead>
+            <tr>
+                <th>Zona</th>
+                <th>Código Casillero</th>
+                <th>Nombre Usuario</th>
+                <th>Fecha Ingreso</th>
+                <th>Fecha Liberación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Filas cargadas dinámicamente -->
+        </tbody>
+    </table>
+
+    <script type="module" src="recursos/js/historial_casilleros.js"></script>
+</body>
+</html>

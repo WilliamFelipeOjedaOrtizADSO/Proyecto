@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrar Casilleros</title>
+  <link rel="stylesheet" href="recursos/css/aggcasillero.css">
+</head>
+<body>
+
+  <h1>Administrar Casilleros</h1>
+
+  <div class="contenedor-principal">
+
+    <!-- Formulario para agregar casilleros -->
+    <div class="formulario-contenedor">
+      <form id="agregarCasillerosForm">
+        <h2>Agregar Casilleros</h2>
+        <label for="zona-select">Selecciona una Zona:</label>
+        <select id="zona-select" required>
+          <option value="">Selecciona una zona</option>
+        </select>
+      
+        <label for="cantidad-casilleros">Cantidad de Casilleros:</label>
+        <input type="number" id="cantidad-casilleros" min="1" required />
+      
+        <button type="submit">Agregar Casilleros</button>
+      </form>
+      
+      <p id="mensaje"></p>
+    </div>
+
+    <!-- Área de filtros -->
+    <div class="filtros-contenedor">
+      <h2>Filtrar Casilleros</h2>
+      <label for="filtro-zona">Zona:</label>
+      <select id="filtro-zona">
+        <option value="">Todas</option>
+        <!-- Opciones de zonas se cargarán dinámicamente -->
+      </select>
+
+      <label for="filtro-codigo">Código de Casillero:</label>
+      <input type="text" id="filtro-codigo">
+
+      <label for="filtro-estado">Estado:</label>
+      <select id="filtro-estado">
+        <option value="">Todos</option>
+        <option value="disponible">Disponible</option>
+        <option value="ocupado">Ocupado</option>
+      </select>
+
+      <button id="filtrar-btn">Filtrar</button>
+    </div>
+
+    <!-- Lista de casilleros existentes -->
+    <div class="lista-casilleros-contenedor">
+      <h2>Casilleros Existentes</h2>
+      <table id="tabla-casilleros">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Zona</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filas de casilleros se cargarán dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script type="module" src="recursos/js/aggcasillero.js"></script>
+</body>
+</html>
