@@ -281,7 +281,7 @@ async function verificarCasilleros() {
 }
 
 document.getElementById('cerrar-sesion').addEventListener('click', function() {
-    window.location.href = 'cerrar_sesion.html';
+    window.location.href = 'index.html';
 });
 
 // Ejecutar la verificación cada hora

@@ -67,9 +67,13 @@ document.getElementById("formulario-registro").addEventListener("submit", async 
     let documento = document.getElementById("nuevoDocumento").value;
     let nombre = document.getElementById("nombre").value;
     let contrasena = document.getElementById("nuevaContrasena").value;
+    let confirmContrasena = document.getElementById("confirmContrasena").value;
     let ficha = document.getElementById("ficha").value;
     let telefono = document.getElementById("telefono").value;
     let email = document.getElementById("email").value;
+    
+
+    
 
     // Expresión regular para validar el formato del correo electrónico
     let regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -95,6 +99,12 @@ document.getElementById("formulario-registro").addEventListener("submit", async 
     // Validar contraseña (mínimo 8 caracteres)
     if (contrasena.length < 8) {
         warnings += "La contraseña debe tener al menos 8 caracteres.\n";
+        entrar = true;
+    }
+
+    // Validar contraseña (mínimo 8 caracteres)
+    if (!(contrasena === confirmContrasena)) {
+        warnings += "Las contraseñas no coinciden.\n";
         entrar = true;
     }
 
