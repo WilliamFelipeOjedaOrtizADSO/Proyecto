@@ -68,3 +68,8 @@ async function mostrarReportes() {
 
 // Inicializar
 mostrarReportes();
+
+
+document.getElementById('btnvolver').addEventListener('click', function() {
+    window.location.href = 'menu.html';
+});

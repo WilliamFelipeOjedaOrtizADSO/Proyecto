@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restablecer Contraseña</title>
-    <link rel="stylesheet" href="recursos/css/styles.css">
+    <link rel="stylesheet" href="recursos/css/reset.css">
 </head>
 <body>
 <div class="contenedor">
@@ -13,14 +13,14 @@
     <form id="formulario-restablecer" class="formulario">
         <div class="formulario__grupo">
             <label for="resetEmail" class="formulario__label">Correo Electrónico</label>
-            <input type="email" id="resetEmail" class="formulario__input" required>
+            <input type="email" id="resetEmail" class="formulario__input" placeholder="Ingresa tu correo" required>
         </div>
         <button type="submit" class="formulario__boton">Enviar</button>
         <div class="warnings">
             <p class="parrafo__warning" id="warnings"></p>
         </div>
     </form>
-    <p>¿Ya tienes una cuenta? <a href="index.html" class="contenedor__enlace">Inicia sesión aquí</a></p>
+    <p class="contenedor__texto">¿Ya tienes una cuenta? <a href="index.html" class="contenedor__enlace">Inicia sesión aquí</a></p>
 </div>
 <script src="recursos/js/script.js"></script>
 </body>

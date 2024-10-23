@@ -240,3 +240,7 @@ document.getElementById('filtrar-btn').addEventListener('click', filtrarZonas);
 document.addEventListener('DOMContentLoaded', () => {
     mostrarZonas();
 });
+
+document.getElementById('btnvolver').addEventListener('click', function() {
+    window.location.href = 'menu.html';
+});

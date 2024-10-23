@@ -6,57 +6,56 @@
     <link rel="stylesheet" href="recursos/css/aggzona.css">
 </head>
 <body>
-    <div>
-        <button id="btnvolver" class="boton-volver">Volver</button>
-        </div>
-    <h1>Administrar Zonas</h1>
+    <div class="zonas">
+        <button id="btnvolver" class="zonas__button">Volver</button>
+        <h1 class="zonas__title">Administrar Zonas</h1>
 
-    <div class="contenedor-principal">
-        <!-- Formulario para agregar zonas -->
-        <div class="formulario-contenedor">
-            <h2>Agregar Zona</h2>
-            <form id="zona-form">
-                <label for="zona-nombre">Nombre de la Zona:</label>
-                <input type="text" id="zona-nombre" required>
-            
-                <label for="cantidad-casilleros">Cantidad de Casilleros:</label>
-                <input type="number" id="cantidad-casilleros" min="1" required>
-            
-                <button type="submit">Agregar Zona</button>
-            </form>
-            
-            <div id="mensaje"></div>
-        </div>
+        <div class="zonas__container">
+            <!-- Formulario para agregar zonas -->
+            <div class="zonas__form">
+                <h2>Agregar Zona</h2>
+                <form id="zona-form">
+                    <label for="zona-nombre">Nombre de la Zona:</label>
+                    <input type="text" id="zona-nombre" required>
+                
+                    <label for="cantidad-casilleros">Cantidad de Casilleros:</label>
+                    <input type="number" id="cantidad-casilleros" min="1" required>
+                
+                    <button type="submit" class="zonas__submit-button">Agregar Zona</button>
+                </form>
+                
+                <div id="mensaje"></div>
+            </div>
 
-        <!-- Área de filtros -->
-        <div class="filtros-contenedor">
-            <h2>Filtrar Zonas</h2>
-            <label for="filtro-nombre">Nombre de la Zona:</label>
-            <input type="text" id="filtro-nombre">
+            <!-- Área de filtros -->
+            <div class="zonas__filters">
+                <h2>Filtrar Zonas</h2>
+                <label for="filtro-nombre">Nombre de la Zona:</label>
+                <input type="text" id="filtro-nombre">
 
-            <label for="filtro-casilleros">Cantidad de Casilleros Mayor a:</label>
-            <input type="number" id="filtro-casilleros" min="0">
+                <label for="filtro-casilleros">Cantidad de Casilleros Mayor a:</label>
+                <input type="number" id="filtro-casilleros" min="0">
 
-            <button id="filtrar-btn">Filtrar</button>
-        </div>
+                <button id="filtrar-btn" class="zonas__filter-button">Filtrar</button>
+            </div>
 
-        <!-- Lista de zonas existentes -->
-        <div class="lista-zonas-contenedor">
-            <h2>Zonas Existentes</h2>
-            <table id="tabla-zonas">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Cantidad de Casilleros</th>
-                        <th>Acciones</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Filas de zonas se cargarán dinámicamente -->
-                </tbody>
-            </table>
+            <!-- Lista de zonas existentes -->
+            <div class="zonas__list">
+                <h2>Zonas Existentes</h2>
+                <table id="tabla-zonas" class="zonas__table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Cantidad de Casilleros</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de zonas se cargarán dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

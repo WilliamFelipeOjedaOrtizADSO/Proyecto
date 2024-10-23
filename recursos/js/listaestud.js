@@ -82,3 +82,8 @@ document.getElementById('filtrarBtn').addEventListener('click', filtrarEstudiant
 document.addEventListener('DOMContentLoaded', () => {
     obtenerEstudiantes().then(mostrarEstudiantes);
 });
+
+
+document.getElementById('btnvolver').addEventListener('click', function() {
+    window.location.href = 'menu.html';
+});

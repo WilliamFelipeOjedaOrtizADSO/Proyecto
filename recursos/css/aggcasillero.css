@@ -1,62 +1,94 @@
-/* aggcasillero.css */
+:root {
+    --primary-color: #008033;
+    --secondary-color: #F58220;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --input-border: #CCCCCC;
+    --button-bg: #F58220;
+    --button-hover-bg: #D9731E;
+    --table-header-bg: #008033;
+    --table-header-text: #FFFFFF;
+}
 
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #F4F4F4;
     margin: 0;
     padding: 20px;
 }
 
-h1 {
+.casilleros__title {
     text-align: center;
-    color: #343a40;
+    color: var(--text-color);
 }
 
-.contenedor-principal {
+.casilleros__button {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.casilleros__button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Contenedor principal */
+.casilleros__container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
-.formulario-contenedor,
-.lista-casilleros-contenedor {
-    background-color: white;
+/* Formulario */
+.casilleros__form,
+.casilleros__list,
+.casilleros__filters {
+    background-color: var(--background-color);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     flex: 1 1 300px;
 }
 
-form {
+.casilleros__form form {
     display: flex;
     flex-direction: column;
 }
 
-form label {
+.casilleros__form label {
     margin-top: 10px;
     font-weight: bold;
 }
 
-form input,
-form select {
+.casilleros__form input,
+.casilleros__form select {
     padding: 8px;
     font-size: 14px;
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
 }
 
-form button {
+.casilleros__submit-button {
     margin-top: 20px;
     padding: 10px;
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
     border: none;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-form button:hover {
-    background-color: #0056b3;
+.casilleros__submit-button:hover {
+    background-color: var(--button-hover-bg);
 }
 
 #mensaje {
@@ -65,14 +97,15 @@ form button:hover {
     font-weight: bold;
 }
 
+/* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
 thead {
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
 }
 
 th,
@@ -83,37 +116,66 @@ td {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #F9F9F9;
 }
 
 tbody tr:hover {
-    background-color: #e9ecef;
+    background-color: #E9ECEF;
 }
 
+/* Botones de acciones */
 button {
     margin: 0 5px;
     padding: 5px 10px;
     font-size: 14px;
+    color: var(--background-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 button:first-child {
-    background-color: #ffc107;
-    color: white;
-    border: none;
-    border-radius: 3px;
+    background-color: #FFC107;
 }
 
 button:first-child:hover {
-    background-color: #e0a800;
+    background-color: #E0A800;
 }
 
 button:last-child {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 3px;
+    background-color: #DC3545;
 }
 
 button:last-child:hover {
-    background-color: #c82333;
+    background-color: #C82333;
+}
+
+/* Filtros */
+.casilleros__filters label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.casilleros__filters input,
+.casilleros__filters select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
+}
+
+.casilleros__filter-button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.casilleros__filter-button:hover {
+    background-color: var(--button-hover-bg);
 }

@@ -1,63 +1,90 @@
-/* aggzona.css */
+:root {
+    --primary-color: #008033; /* Verde SENA */
+    --secondary-color: #F58220; /* Naranja SENA */
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --input-border: #CCCCCC;
+    --button-bg: var(--secondary-color);
+    --button-hover-bg: #D9731E;
+    --table-header-bg: var(--primary-color);
+    --table-header-text: var(--background-color);
+}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #F4F4F4;
     margin: 0;
     padding: 20px;
 }
 
-h1 {
+.zonas__title {
     text-align: center;
-    color: #343a40;
+    color: var(--text-color);
 }
 
-.contenedor-principal {
+.zonas__button {
+    background-color: var(--button-bg);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.zonas__button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.zonas__container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
-.formulario-contenedor,
-.filtros-contenedor,
-.lista-zonas-contenedor {
-    background-color: white;
+.zonas__form,
+.zonas__filters,
+.zonas__list {
+    background-color: var(--background-color);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     flex: 1 1 300px;
 }
 
-form {
+.zonas__form form {
     display: flex;
     flex-direction: column;
 }
 
-form label {
+.zonas__form label {
     margin-top: 10px;
     font-weight: bold;
 }
 
-form input,
-form select {
+.zonas__form input {
     padding: 8px;
     font-size: 14px;
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
 }
 
-form button {
+.zonas__submit-button {
     margin-top: 20px;
     padding: 10px;
-    background-color: #28A745;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--background-color);
     border: none;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-form button:hover {
-    background-color: #218838;
+.zonas__submit-button:hover {
+    background-color: var(--button-hover-bg);
 }
 
 #mensaje {
@@ -66,17 +93,19 @@ form button:hover {
     font-weight: bold;
 }
 
+/* Botones de acciones */
 button {
     margin: 0 5px;
     padding: 5px 10px;
     font-size: 14px;
+    color: var(--background-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 button:first-child {
     background-color: #FFC107;
-    color: white;
-    border: none;
-    border-radius: 3px;
 }
 
 button:first-child:hover {
@@ -85,63 +114,65 @@ button:first-child:hover {
 
 button:last-child {
     background-color: #DC3545;
-    color: white;
-    border: none;
-    border-radius: 3px;
 }
 
 button:last-child:hover {
     background-color: #C82333;
 }
 
-table {
+/* Tabla */
+.zonas__table {
     width: 100%;
     border-collapse: collapse;
 }
 
-thead {
-    background-color: #007BFF;
-    color: white;
+.zonas__table thead {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
 }
 
-th,
-td {
+.zonas__table th,
+.zonas__table td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+.zonas__table tbody tr:nth-child(even) {
+    background-color: #F9F9F9;
 }
 
-tbody tr:hover {
-    background-color: #e9ecef;
+.zonas__table tbody tr:hover {
+    background-color: #E9ECEF;
 }
 
-.filtros-contenedor label {
+/* Filtros */
+.zonas__filters label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
 }
 
-.filtros-contenedor input {
+.zonas__filters input {
     padding: 8px;
     font-size: 14px;
     width: 100%;
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
 }
 
-#filtrar-btn {
+.zonas__filter-button {
     margin-top: 20px;
     padding: 10px;
-    background-color: #17A2B8;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--background-color);
     border: none;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-#filtrar-btn:hover {
-    background-color: #117A8B;
+.zonas__filter-button:hover {
+    background-color: var(--button-hover-bg);
 }

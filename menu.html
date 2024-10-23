@@ -7,32 +7,30 @@
     <link rel="stylesheet" href="/recursos/css/menu.css">
 </head>
 <body>
-    <div class="container">
-        <div class="card" onclick="window.location.href='agregar_zona.html'">
-            <div class="icon">🗺️</div>
-            <div class="title">Agregar Zona</div>
+    <div class="menu">
+        <div class="menu__cards">
+            <div class="menu__card" onclick="window.location.href='agregar_zona.html'">
+                <div class="menu__icon">🗺️</div>
+                <div class="menu__title">Agregar Zona</div>
+            </div>
+            <div class="menu__card" onclick="window.location.href='agregar_casillero.html'">
+                <div class="menu__icon">📦</div>
+                <div class="menu__title">Agregar Casillero</div>
+            </div>
+            <div class="menu__card" onclick="window.location.href='listaestudiantes.html'">
+                <div class="menu__icon">📚</div>
+                <div class="menu__title">Ver Lista de Estudiantes</div>
+            </div>
+            <div class="menu__card" onclick="window.location.href='historialcasilleros.html'">
+                <div class="menu__icon">📖</div>
+                <div class="menu__title">Historial de Casilleros</div>
+            </div>
+            <div class="menu__card" onclick="window.location.href='reportescasilleros.html'">
+                <div class="menu__icon">📋</div>
+                <div class="menu__title">Reportes de Casilleros</div>
+            </div>
         </div>
-        <div class="card" onclick="window.location.href='agregar_casillero.html'">
-            <div class="icon">📦</div>
-            <div class="title">Agregar Casillero</div>
-        </div>
-        <div class="card" onclick="window.location.href='listaestudiantes.html'">
-            <div class="icon">📚</div>
-            <div class="title">Ver Lista de Estudiantes</div>
-        </div>
-        <div class="card" onclick="window.location.href='historialcasilleros.html'">
-            <div class="icon">📖</div>
-            <div class="title">Historial de Casilleros</div>
-        </div>
-        <div class="card" onclick="window.location.href='reportescasilleros.html'">
-            <div class="icon">📋</div>
-            <div class="title">Reportes de Casilleros</div>
-        </div>
-        <!-- Botón para cerrar sesión -->
-         <div>
-        <button id="cerrar-sesion" class="boton-cerrar-sesion">Cerrar Sesión</button>
-        </div>
-
+        <button id="cerrar-sesion" class="menu__button">Cerrar Sesión</button>
     </div>
 </body>
 </html>

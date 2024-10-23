@@ -1,73 +1,103 @@
+:root {
+    --primary-color: #008033;
+    --secondary-color: #F58220;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --table-header-bg: #008033;
+    --table-header-text: #FFFFFF;
+    --button-bg: #F58220;
+    --button-hover-bg: #D9731E;
+    --input-border: #CCCCCC;
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #F4F4F4;
     margin: 0;
     padding: 0;
 }
 
-.container {
+.estudiantes {
     max-width: 900px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: var(--background-color);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Títulos */
-h2 {
+.estudiantes__title {
     text-align: center;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
+.estudiantes__button {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.estudiantes__button:hover {
+    background-color: var(--button-hover-bg);
+}
+
 /* Estilos de la tabla */
-table {
+.estudiantes__table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-table, th, td {
+.estudiantes__table, th, td {
     border: 1px solid #ddd;
 }
 
-th, td {
+.estudiantes__table th,
+.estudiantes__table td {
     padding: 12px;
     text-align: left;
 }
 
-th {
-    background-color: #4CAF50;
-    color: white;
+.estudiantes__table thead th {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
 }
 
 /* Filtros */
-.filtros {
+.estudiantes__filters {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-.filtros input, .filtros select {
+.estudiantes__filters input,
+.estudiantes__filters select {
     width: 30%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
     border-radius: 4px;
     font-size: 16px;
 }
 
-.filtros button {
-    background-color: #4CAF50;
-    color: white;
+.estudiantes__filter-button {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-.filtros button:hover {
-    background-color: #45a049;
+.estudiantes__filter-button:hover {
+    background-color: var(--button-hover-bg);
 }

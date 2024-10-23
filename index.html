@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="recursos/css/styles.css">
 </head>
 <body>
-    <div class="contenedor">
-        <img src="recursos/multimedia/logo.png" alt="Logo" class="contenedor__logo">
-        <h2 class="contenedor__titulo">Iniciar Sesión</h2>
+    <div class="login">
+        <img src="recursos/multimedia/logo.png" alt="Logo" class="login__logo">
+        <h2 class="login__titulo">Iniciar Sesión</h2>
 
         <!-- Formulario de Login -->
-        <form id="formulario-login" class="formulario">
-            <div class="formulario__grupo">
-                <label for="TipoDocumento" class="formulario__label">Tipo de Documento</label>
-                <select class="formulario__input" id="TipoDocumento" required>
+        <form id="login__formulario" class="login__formulario">
+            <div class="login__grupo">
+                <label for="TipoDocumento" class="login__label">Tipo de Documento</label>
+                <select class="login__input" id="TipoDocumento" required>
                     <option value="">Seleccione su documento</option>
                     <option value="TI">Tarjeta de identidad</option>
                     <option value="CC">Cédula de ciudadanía</option>
@@ -23,29 +23,29 @@
                 </select>
             </div>
             
-            <div class="formulario__grupo">
-                <label for="Documento" class="formulario__label">Documento</label>
-                <input type="text" id="Documento" class="formulario__input" autocomplete="off" required>
+            <div class="login__grupo">
+                <label for="Documento" class="login__label">Documento</label>
+                <input type="text" id="Documento" class="login__input" autocomplete="off" required>
             </div>
 
-            <div class="formulario__grupo">
-                <label for="password" class="formulario__label">Contraseña</label>
-                <input type="password" id="password" class="formulario__input" required>
+            <div class="login__grupo">
+                <label for="password" class="login__label">Contraseña</label>
+                <input type="password" id="password" class="login__input" required>
             </div>
 
             <!-- Botón de envío del formulario -->
-            <button type="submit" class="formulario__boton">Login</button>
+            <button type="submit" class="login__boton">Login</button>
 
             <!-- Mensajes de advertencias o éxito -->
-            <div class="warnings">
-                <p id="warnings" class="parrafo__warning"></p>
+            <div class="login__warnings">
+                <p id="warnings" class="login__parrafo-warning"></p>
             </div>
         </form>
 
         <!-- Enlaces adicionales -->
-        <div class="contenedor__pie">
-            <a href="reset-password.html" class="contenedor__enlace">¿Olvidaste tu contraseña?</a>
-            <p>¿No tienes una cuenta? <a href="registro.html" class="contenedor__enlace">Regístrate aquí</a></p>
+        <div class="login__pie">
+            <a href="reset-pasword.html" class="login__enlace">¿Olvidaste tu contraseña?</a>
+            <p>¿No tienes una cuenta? <a href="registro.html" class="login__enlace">Regístrate aquí</a></p>
         </div>
     </div>
 

@@ -35,7 +35,7 @@ async function mostrarZonas() {
         // Mostrar las zonas como botones en el DOM
         zonas.forEach(zona => {
             const botonZona = document.createElement("button");
-            botonZona.className = 'boton-zona';
+            botonZona.classList.add('zonas__button-zone'); // Usamos classList.add
             botonZona.textContent = zona.nombre;
 
             // Añadir un atributo data-id para identificar la zona al hacer clic
@@ -66,6 +66,11 @@ async function mostrarZonas() {
 // Llamar a la función para mostrar las zonas cuando se carga la página
 document.addEventListener('DOMContentLoaded', mostrarZonas);
 
+// Evento para el botón de cerrar sesión
 document.getElementById('cerrar-sesion').addEventListener('click', function() {
+    // Eliminar los datos de sesión
+    localStorage.removeItem('documentoUsuario');
+    localStorage.removeItem('usuario');
+    // Redirigir al login
     window.location.href = 'index.html';
 });

@@ -2,21 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Estudiantes</title>
     <link rel="stylesheet" href="recursos/css/listaestud.css">
 </head>
 <body>
-    
-
-    <div class="container">
-        <div>
-            <button id="btnvolver" class="boton-volver">Volver</button>
-            </div>
-        <h2>Lista de Estudiantes</h2>
+    <div class="estudiantes">
+        <button id="btnvolver" class="estudiantes__button">Volver</button>
+        <h2 class="estudiantes__title">Lista de Estudiantes</h2>
 
         <!-- Controles de filtro -->
-        <div class="filtros">
+        <div class="estudiantes__filters">
             <select id="filtroSeleccionado">
                 <option value="nombre">Filtrar por Nombre</option>
                 <option value="ficha">Filtrar por Ficha</option>
@@ -26,11 +21,11 @@
                 <option value="tipoDocumento">Filtrar por Tipo de Documento</option>
             </select>
             <input type="text" id="valorFiltro" placeholder="Ingresa el valor...">
-            <button id="filtrarBtn">Filtrar</button>
+            <button id="filtrarBtn" class="estudiantes__filter-button">Filtrar</button>
         </div>
 
         <!-- Tabla de estudiantes -->
-        <table>
+        <table class="estudiantes__table">
             <thead>
                 <tr>
                     <th>Nombre</th>

@@ -1,42 +1,138 @@
+:root {
+    --primary-color: #008033; /* Verde SENA */
+    --secondary-color: #F58220; /* Naranja SENA */
+    --danger-color: #DC3545;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --button-bg: var(--primary-color);
+    --button-hover-opacity: 0.8;
+}
+
 body {
     font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.casilleros {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+    min-height: 100vh; /* Ocupa al menos el alto de la ventana */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.casilleros__title {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
     text-align: center;
 }
 
-#casilleros-container {
+.casilleros__button {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.casilleros__button:hover {
+    background-color: #D9731E;
+}
+
+.casilleros__button--danger {
+    background-color: var(--danger-color);
+}
+
+.casilleros__button--danger:hover {
+    background-color: #C82333;
+}
+
+.casilleros__container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.casilleros__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    width: 100%;
     margin-top: 20px;
 }
 
-.grid-casilleros {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.boton-casillero {
-    width: 100px;
+.casilleros__button-locker {
     height: 100px;
-    font-size: 16px;
-    color: #fff;
+    font-size: 1rem;
+    color: var(--background-color);
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.boton-casillero:hover {
-    opacity: 0.8;
+.casilleros__button-locker:hover {
+    opacity: var(--button-hover-opacity);
 }
 
-.boton-casillero:disabled {
+.casilleros__button-locker:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
+/* Estilos según el estado del casillero */
+.casillero--disponible {
+    background-color: green;
+}
 
-button {
-    margin: 15px 5px;
-    padding: 5px 10px;
-    font-size: 14px;
+.casillero--ocupado {
+    background-color: red;
+}
+
+.casillero--propio {
+    background-color: orange;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 600px) {
+    .casilleros__title {
+        font-size: 1.5rem;
+    }
+
+    .casilleros__button-locker {
+        height: 80px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .casilleros__title {
+        font-size: 1.8rem;
+    }
+
+    .casilleros__button-locker {
+        height: 90px;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 901px) {
+    .casilleros__title {
+        font-size: 2rem;
+    }
+
+    .casilleros__button-locker {
+        height: 100px;
+        font-size: 1.1rem;
+    }
 }

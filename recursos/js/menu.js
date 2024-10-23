@@ -11,3 +11,12 @@ document.addEventListener("DOMContentLoaded", function() {
         notificationsMenu.classList.toggle('active');
     });
 });
+
+// Evento para el botón de cerrar sesión
+document.getElementById('cerrar-sesion').addEventListener('click', function() {
+    // Eliminar los datos de sesión
+    localStorage.removeItem('documentoUsuario');
+    localStorage.removeItem('usuario');
+    // Redirigir al login
+    window.location.href = 'index.html';
+});

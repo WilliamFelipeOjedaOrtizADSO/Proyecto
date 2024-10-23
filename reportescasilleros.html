@@ -6,26 +6,26 @@
     <link rel="stylesheet" href="recursos/css/reportes_casilleros.css">
 </head>
 <body>
-    <div>
-        <button id="btnvolver" class="boton-volver">Volver</button>
-        </div>
-    <h1>Reportes de Casilleros</h1>
+    <div class="reportes">
+        <button id="btnvolver" class="reportes__button">Volver</button>
+        <h1 class="reportes__title">Reportes de Casilleros</h1>
 
-    <!-- Tabla de reportes -->
-    <table id="reportesTable">
-        <thead>
-            <tr>
-                <th>Zona</th>
-                <th>Código Casillero</th>
-                <th>Nombre Usuario</th>
-                <th>Fecha Reporte</th>
-                <th>Motivo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Filas cargadas dinámicamente -->
-        </tbody>
-    </table>
+        <!-- Tabla de reportes -->
+        <table id="reportesTable" class="reportes__table">
+            <thead>
+                <tr>
+                    <th>Zona</th>
+                    <th>Código Casillero</th>
+                    <th>Nombre Usuario</th>
+                    <th>Fecha Reporte</th>
+                    <th>Motivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas cargadas dinámicamente -->
+            </tbody>
+        </table>
+    </div>
 
     <script type="module" src="recursos/js/reportes_casilleros.js"></script>
 </body>

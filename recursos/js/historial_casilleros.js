@@ -1,12 +1,26 @@
 import { apiUrl } from './config.js';
 
+// Función para verificar si el usuario ha iniciado sesión
+function verificarSesion() {
+    const documentoUsuario = localStorage.getItem('documentoUsuario');
+    if (!documentoUsuario) {
+        // Si no hay usuario en sesión, redirigir al login
+        window.location.href = 'index.html';
+    }
+}
+
 // Función para obtener todas las zonas
 async function obtenerZonas() {
-    const response = await fetch(`${apiUrl}/zonas`);
-    if (!response.ok) {
-        throw new Error('Error al obtener las zonas');
+    try {
+        const response = await fetch(`${apiUrl}/zonas`);
+        if (!response.ok) {
+            throw new Error('Error al obtener las zonas');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error:', error);
+        return [];
     }
-    return await response.json();
 }
 
 // Función para cargar las opciones del select de zonas
@@ -37,7 +51,8 @@ async function obtenerHistorial() {
             if (casillero.historial && casillero.historial.length > 0) {
                 casillero.historial.forEach(entry => {
                     historial.push({
-                        zona: zona.nombre,
+                        zonaId: zona.id,
+                        zonaNombre: zona.nombre,
                         codigoCasillero: casillero.codigo,
                         nombreUsuario: entry.nombreUsuario,
                         fechaIngreso: entry.fechaIngreso,
@@ -61,7 +76,7 @@ async function mostrarHistorial() {
         const fila = document.createElement('tr');
 
         const celdaZona = document.createElement('td');
-        celdaZona.textContent = entry.zona;
+        celdaZona.textContent = entry.zonaNombre;
         fila.appendChild(celdaZona);
 
         const celdaCodigo = document.createElement('td');
@@ -89,7 +104,7 @@ function aplicarFiltros(historial) {
     const fechaInicio = document.getElementById('fechaInicio').value;
     const fechaFin = document.getElementById('fechaFin').value;
     const zonaId = document.getElementById('zonaSelect').value;
-    const codigoCasillero = document.getElementById('codigoCasillero').value.trim();
+    const codigoCasillero = document.getElementById('codigoCasillero').value.trim().toLowerCase();
 
     return historial.filter(entry => {
         let pasaFiltro = true;
@@ -103,11 +118,11 @@ function aplicarFiltros(historial) {
         }
 
         if (zonaId) {
-            pasaFiltro = pasaFiltro && entry.zona === zonaId;
+            pasaFiltro = pasaFiltro && entry.zonaId === zonaId;
         }
 
         if (codigoCasillero) {
-            pasaFiltro = pasaFiltro && entry.codigoCasillero.includes(codigoCasillero);
+            pasaFiltro = pasaFiltro && entry.codigoCasillero.toLowerCase().includes(codigoCasillero);
         }
 
         return pasaFiltro;
@@ -126,7 +141,7 @@ document.getElementById('filtrarBtn').addEventListener('click', async () => {
         const fila = document.createElement('tr');
 
         const celdaZona = document.createElement('td');
-        celdaZona.textContent = entry.zona;
+        celdaZona.textContent = entry.zonaNombre;
         fila.appendChild(celdaZona);
 
         const celdaCodigo = document.createElement('td');
@@ -150,5 +165,12 @@ document.getElementById('filtrarBtn').addEventListener('click', async () => {
 });
 
 // Inicializar
-cargarZonas();
-mostrarHistorial();
+document.addEventListener('DOMContentLoaded', async () => {
+    verificarSesion();
+    await cargarZonas();
+    await mostrarHistorial();
+
+    document.getElementById('btnvolver').addEventListener('click', function() {
+        window.location.href = 'menu.html';
+    });
+});

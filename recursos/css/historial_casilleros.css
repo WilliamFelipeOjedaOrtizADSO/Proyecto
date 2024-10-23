@@ -1,73 +1,141 @@
-/* historial_casilleros.css */
+:root {
+    --primary-color: #008033;
+    --secondary-color: #F58220;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --table-header-bg: #008033;
+    --table-header-text: #FFFFFF;
+    --button-bg: #F58220;
+    --button-hover-bg: #D9731E;
+    --input-border: #CCCCCC;
+}
 
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #F4F4F4;
     margin: 0;
+    padding: 0;
+    display: flex; /* Para centrar el contenido */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.historial {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-h1 {
+.historial__title {
     text-align: center;
-    color: #343a40;
+    color: var(--text-color);
+    margin-bottom: 20px;
 }
 
-#filtros {
+.historial__button {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.historial__button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Filtros */
+.historial__filters {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-#filtros label {
+.historial__filters label {
     font-weight: bold;
     margin-right: 5px;
 }
 
-#filtros input,
-#filtros select {
+.historial__filters input,
+.historial__filters select {
     padding: 5px;
     font-size: 14px;
-}
-
-#filtrarBtn {
-    padding: 7px 15px;
-    font-size: 14px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
+    border: 1px solid var(--input-border);
     border-radius: 3px;
 }
 
-#filtrarBtn:hover {
-    background-color: #0056b3;
+.historial__filter-button {
+    padding: 7px 15px;
+    font-size: 14px;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
 }
 
-table {
+.historial__filter-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Tabla */
+.historial__table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-thead {
-    background-color: #007BFF;
-    color: white;
+.historial__table thead {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
 }
 
-th,
-td {
+.historial__table th,
+.historial__table td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+.historial__table tbody tr:nth-child(even) {
+    background-color: #F9F9F9;
 }
 
-tbody tr:hover {
-    background-color: #e9ecef;
+.historial__table tbody tr:hover {
+    background-color: #E9ECEF;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .historial {
+        padding: 10px;
+    }
+
+    .historial__filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .historial__filters label,
+    .historial__filters input,
+    .historial__filters select,
+    .historial__filter-button {
+        width: 100%;
+    }
+
+    .historial__table th,
+    .historial__table td {
+        font-size: 12px;
+    }
 }

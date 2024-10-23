@@ -4,43 +4,54 @@
     <meta charset="UTF-8">
     <title>Historial de Casilleros</title>
     <link rel="stylesheet" href="recursos/css/historial_casilleros.css">
+    <script>
+        // Evitar que la página se almacene en caché
+        if (window.history && window.history.pushState) {
+            window.addEventListener('load', function() {
+                window.history.pushState(null, null, window.location.href);
+                window.onpopstate = function() {
+                    window.history.go(1);
+                };
+            });
+        }
+    </script>
 </head>
 <body>
-    <div>
-        <button id="btnvolver" class="boton-volver">Volver</button>
+    <div class="historial">
+        <button id="btnvolver" class="historial__button">Volver</button>
+        <h1 class="historial__title">Historial de Casilleros</h1>
+
+        <!-- Filtros -->
+        <div class="historial__filters">
+            <label for="fechaInicio">Fecha Inicio:</label>
+            <input type="date" id="fechaInicio">
+            <label for="fechaFin">Fecha Fin:</label>
+            <input type="date" id="fechaFin">
+            <label for="zonaSelect">Zona:</label>
+            <select id="zonaSelect">
+                <!-- Opciones cargadas dinámicamente -->
+            </select>
+            <label for="codigoCasillero">Código de Casillero:</label>
+            <input type="text" id="codigoCasillero">
+            <button id="filtrarBtn" class="historial__filter-button">Filtrar</button>
         </div>
-    <h1>Historial de Casilleros</h1>
 
-    <!-- Filtros -->
-    <div id="filtros">
-        <label for="fechaInicio">Fecha Inicio:</label>
-        <input type="date" id="fechaInicio">
-        <label for="fechaFin">Fecha Fin:</label>
-        <input type="date" id="fechaFin">
-        <label for="zonaSelect">Zona:</label>
-        <select id="zonaSelect">
-            <!-- Opciones cargadas dinámicamente -->
-        </select>
-        <label for="codigoCasillero">Código de Casillero:</label>
-        <input type="text" id="codigoCasillero">
-        <button id="filtrarBtn">Filtrar</button>
+        <!-- Tabla de historial -->
+        <table id="historialTable" class="historial__table">
+            <thead>
+                <tr>
+                    <th>Zona</th>
+                    <th>Código Casillero</th>
+                    <th>Nombre Usuario</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Liberación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas cargadas dinámicamente -->
+            </tbody>
+        </table>
     </div>
-
-    <!-- Tabla de historial -->
-    <table id="historialTable">
-        <thead>
-            <tr>
-                <th>Zona</th>
-                <th>Código Casillero</th>
-                <th>Nombre Usuario</th>
-                <th>Fecha Ingreso</th>
-                <th>Fecha Liberación</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Filas cargadas dinámicamente -->
-        </tbody>
-    </table>
 
     <script type="module" src="recursos/js/historial_casilleros.js"></script>
 </body>

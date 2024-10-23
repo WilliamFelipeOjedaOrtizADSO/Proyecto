@@ -1,41 +1,80 @@
-/* Estilos para el contenedor */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    gap: 20px; /* Espacio entre las cards */
+/* Variables CSS */
+:root {
+    --primary-color: #008033; /* Verde SENA */
+    --secondary-color: #F58220; /* Naranja SENA */
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --card-bg-color: #FFFFFF;
+    --card-hover-bg-color: #F0F0F0;
+    --border-color: #CCCCCC;
+    --font-size-icon: 50px;
+    --font-size-title: 18px;
+    --button-hover-color: #D9731E;
 }
 
-/* Estilos para cada card */
-.card {
+/* Estilos para el menú */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+.menu__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu__card {
     width: 200px;
     height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid #ccc;
+    border: 2px solid var(--border-color);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--card-bg-color);
 }
 
-.card:hover {
-    background-color: #f0f0f0;
+.menu__card:hover {
+    background-color: var(--card-hover-bg-color);
     transform: scale(1.05);
 }
 
-.icon {
-    font-size: 50px; /* Tamaño del ícono */
+.menu__icon {
+    font-size: var(--font-size-icon);
     margin-bottom: 10px;
 }
 
-.title {
-    font-size: 18px;
+.menu__title {
+    font-size: var(--font-size-title);
     font-weight: bold;
+    color: var(--text-color);
+}
+
+/* Estilos para el botón */
+.menu__button {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.menu__button:hover {
+    background-color: var(--button-hover-color);
 }

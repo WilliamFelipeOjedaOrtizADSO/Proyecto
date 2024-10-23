@@ -267,3 +267,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await llenarComboboxZonas();
     await mostrarCasilleros();
 });
+
+document.getElementById('btnvolver').addEventListener('click', function() {
+    window.location.href = 'menu.html';
+});

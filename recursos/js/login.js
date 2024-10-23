@@ -1,30 +1,23 @@
-import { apiUrl } from './config.js'; // Importamos la URL base desde el config.js
+import { apiUrl } from './config.js';
 
-// Función para crear un mensaje sin usar innerHTML
 function mostrarMensaje(tipo, mensaje) {
     const warningsElement = document.getElementById("warnings");
-    warningsElement.textContent = ''; // Limpiamos el contenido anterior
-
-    const texto = document.createTextNode(mensaje); // Creamos el nodo de texto
-    warningsElement.appendChild(texto); // Añadimos el mensaje
-
-    // Estilo para error o éxito
+    warningsElement.textContent = ''; 
+    const texto = document.createTextNode(mensaje); 
+    warningsElement.appendChild(texto); 
     warningsElement.style.color = tipo === "error" ? "red" : "green";
 }
 
-// Manejador para el envío del formulario de login
-document.getElementById("formulario-login").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Evita el comportamiento predeterminado del formulario
+document.getElementById("login__formulario").addEventListener("submit", async function(event) {
+    event.preventDefault();
 
     let warnings = "";
     let entrar = false;
 
-    // Obtener valores de los campos del formulario
     let tipoDocumento = document.getElementById("TipoDocumento").value;
     let documento = document.getElementById("Documento").value;
     let contrasena = document.getElementById("password").value;
 
-    // Validaciones
     if (tipoDocumento === "") {
         warnings += "Seleccione un tipo de documento.\n";
         entrar = true;
@@ -40,16 +33,13 @@ document.getElementById("formulario-login").addEventListener("submit", async fun
         entrar = true;
     }
 
-    // Mostrar advertencias si hay errores
     if (entrar) {
         mostrarMensaje("error", warnings);
     } else {
         try {
-            // Consulta al servidor para verificar el usuario
             const response = await fetch(`${apiUrl}/users`);
             const data = await response.json();
 
-            // Verificar si existe un usuario con las credenciales proporcionadas
             let usuario = data.find(user => 
                 user.tipoDocumento === tipoDocumento &&
                 user.documento === documento &&
@@ -57,17 +47,13 @@ document.getElementById("formulario-login").addEventListener("submit", async fun
             );
 
             if (usuario) {
-                // Guardar usuario en localStorage
                 localStorage.setItem('usuario', JSON.stringify(usuario));
-
-                // Guardar el número de documento del usuario en localStorage
                 localStorage.setItem('documentoUsuario', usuario.documento);
 
-                // Redirigir según el roleId del usuario
                 if (usuario.roleId === 2) {
-                    window.location.href = 'menu.html'; // Redirigir a la vista de administrador
+                    window.location.href = 'menu.html';
                 } else if (usuario.roleId === 1) {
-                    window.location.href = 'zonas.html'; // Redirigir a la vista de usuario
+                    window.location.href = 'zonas.html';
                 }
             } else {
                 mostrarMensaje("error", "Documento, tipo o contraseña incorrectos.");

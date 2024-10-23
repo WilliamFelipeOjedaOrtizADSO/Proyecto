@@ -1,87 +1,111 @@
-/* estilos de zonas.css */
+:root {
+    --primary-color: #008033; /* Verde SENA */
+    --secondary-color: #F58220; /* Naranja SENA */
+    --danger-color: #DC3545;
+    --background-color: #F2F2F2; /* Gris Claro */
+    --text-color: #333333;
+    --button-bg: var(--primary-color);
+    --button-hover-bg: #006629; /* Verde más oscuro */
+    --button-danger-bg: var(--danger-color);
+    --button-danger-hover-bg: #C82333;
+}
 
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f2f2f2; /* Color de fondo claro */
-    margin: 0; /* Elimina márgenes por defecto */
-    padding: 20px; /* Espacio interno */
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0; /* Eliminamos el padding para un mejor centrado */
 }
 
-h1 {
-    color: #007BFF; /* Color del título */
-    margin-bottom: 20px; /* Espacio debajo del título */
-}
-
-#zonas-container {
+.zonas {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centra las zonas horizontalmente */
-    gap: 15px; /* Espacio entre botones */
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    min-height: 100vh; /* Ocupa al menos el alto de la ventana */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.boton-zona {
-    width: 150px;
-    height: 150px;
-    font-size: 18px;
-    color: #fff;
-    background-color: #007BFF; /* Color del botón */
+.zonas__title {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.zonas__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    width: 100%; /* Para que el grid ocupe todo el ancho disponible */
+    max-width: 800px; /* Limitar el ancho máximo */
+    margin-bottom: 20px; /* Espacio debajo del contenedor */
+}
+
+.zonas__button-zone {
+    height: 100px;
+    font-size: 1rem;
+    color: var(--background-color);
+    background-color: var(--button-bg);
     border: none;
     cursor: pointer;
-    border-radius: 8px; /* Bordes redondeados */
-    display: flex; /* Usa flexbox para centrar el texto */
-    align-items: center; /* Centra verticalmente el texto */
-    justify-content: center; /* Centra horizontalmente el texto */
-    transition: background-color 0.3s; /* Transición suave al cambiar de color */
+    border-radius: 8px;
+    display: flex; /* Para centrar el texto dentro del botón */
+    align-items: center; /* Centrar verticalmente el texto */
+    justify-content: center; /* Centrar horizontalmente el texto */
+    transition: background-color 0.3s;
 }
 
-.boton-zona:hover {
-    background-color: #0056b3; /* Color del botón al pasar el cursor */
+.zonas__button-zone:hover {
+    background-color: var(--button-hover-bg);
 }
 
-/* Estilos para el botón de cerrar sesión */
-.boton-cerrar-sesion {
-    margin-top: 20px; /* Espacio arriba del botón */
-    padding: 10px 20px; /* Espacio interno */
-    font-size: 16px; /* Tamaño de la fuente */
-    color: #fff; /* Color del texto */
-    background-color: #dc3545; /* Color del botón */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.3s; /* Transición suave al cambiar de color */
+.zonas__button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--background-color);
+    background-color: var(--button-danger-bg);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.boton-cerrar-sesion:hover {
-    background-color: #c82333; /* Color del botón al pasar el cursor */
+.zonas__button:hover {
+    background-color: var(--button-danger-hover-bg);
 }
 
 /* Media queries para responsividad */
 @media (max-width: 600px) {
-    .boton-zona {
-        width: 100px;
-        height: 100px;
-        font-size: 16px;
+    .zonas__title {
+        font-size: 1.5rem;
     }
 
-    h1 {
-        font-size: 1.5rem; /* Tamaño de fuente más pequeño para el título */
+    .zonas__button-zone {
+        height: 80px;
+        font-size: 0.9rem;
     }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
-    .boton-zona {
-        width: 130px;
-        height: 130px;
-        font-size: 17px;
+    .zonas__title {
+        font-size: 1.8rem;
+    }
+
+    .zonas__button-zone {
+        height: 90px;
+        font-size: 1rem;
     }
 }
 
 @media (min-width: 901px) {
-    .boton-zona {
-        width: 150px;
-        height: 150px;
-        font-size: 18px;
+    .zonas__title {
+        font-size: 2rem;
+    }
+
+    .zonas__button-zone {
+        height: 100px;
+        font-size: 1.1rem;
     }
 }

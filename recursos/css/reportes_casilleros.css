@@ -1,39 +1,70 @@
-/* reportes_casilleros.css */
+:root {
+    --primary-color: #008033; /* Verde SENA */
+    --secondary-color: #F58220; /* Naranja SENA */
+    --danger-color: #DC3545;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --table-header-bg: var(--danger-color);
+    --table-header-text: var(--background-color);
+    --button-bg: var(--secondary-color);
+    --button-hover-bg: #D9731E;
+}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #F4F4F4;
     margin: 0;
     padding: 20px;
 }
 
-h1 {
-    text-align: center;
-    color: #343a40;
+.reportes {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-table {
+.reportes__title {
+    text-align: center;
+    color: var(--text-color);
+}
+
+.reportes__button {
+    background-color: var(--button-bg);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.reportes__button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Tabla */
+.reportes__table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-thead {
-    background-color: #dc3545;
-    color: white;
+.reportes__table thead {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
 }
 
-th,
-td {
+.reportes__table th,
+.reportes__table td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f8d7da;
+.reportes__table tbody tr:nth-child(even) {
+    background-color: #F8D7DA; /* Rojo claro */
 }
 
-tbody tr:hover {
-    background-color: #f5c6cb;
+.reportes__table tbody tr:hover {
+    background-color: #F5C6CB; /* Rojo más intenso */
 }

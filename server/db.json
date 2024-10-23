@@ -30,7 +30,7 @@
       "ficha": "2696521",
       "telefono": "3028645315",
       "email": "wfojeda@soy.sena.edu.co",
-      "roleId": 1
+      "roleId": 2
     },
     {
       "id": "3",
@@ -184,6 +184,28 @@
       "ficha": "2696521",
       "telefono": "321321123",
       "email": "skibidichamo@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "4dae",
+      "tipoDocumento": "CC",
+      "documento": "123123",
+      "nombre": "asereje",
+      "contrasena": "123123123",
+      "ficha": "123123",
+      "telefono": "123123123",
+      "email": "123@gmail.com",
+      "roleId": 1
+    },
+    {
+      "id": "a392",
+      "tipoDocumento": "CC",
+      "documento": "123123123",
+      "nombre": "asereje",
+      "contrasena": "123123123",
+      "ficha": "123123123",
+      "telefono": "123123123",
+      "email": "1234@gmail.com",
       "roleId": 1
     }
   ],
