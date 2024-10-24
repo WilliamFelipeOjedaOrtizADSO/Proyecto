@@ -1,15 +1,26 @@
+// historial_casilleros.js
+
 import { apiUrl } from './config.js';
 
-// Función para verificar si el usuario ha iniciado sesión
+/**
+ * Función para verificar si el usuario ha iniciado sesión y tiene permisos de administrador.
+ */
 function verificarSesion() {
-    const documentoUsuario = localStorage.getItem('documentoUsuario');
-    if (!documentoUsuario) {
-        // Si no hay usuario en sesión, redirigir al login
+    const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+    if (!usuario) {
         window.location.href = 'index.html';
+    } else {
+        if (usuario.roleId !== 2) {
+            alert("No tienes permiso para acceder a esta sección.");
+            window.location.href = 'zonas.html';
+        }
     }
 }
 
-// Función para obtener todas las zonas
+/**
+ * Función para obtener todas las zonas.
+ * @returns {Promise<Array>} Un arreglo de zonas.
+ */
 async function obtenerZonas() {
     try {
         const response = await fetch(`${apiUrl}/zonas`);
@@ -23,7 +34,9 @@ async function obtenerZonas() {
     }
 }
 
-// Función para cargar las opciones del select de zonas
+/**
+ * Función para cargar las opciones del select de zonas.
+ */
 async function cargarZonas() {
     const zonas = await obtenerZonas();
     const zonaSelect = document.getElementById('zonaSelect');
@@ -41,7 +54,10 @@ async function cargarZonas() {
     });
 }
 
-// Función para obtener el historial completo
+/**
+ * Función para obtener el historial completo de casilleros.
+ * @returns {Promise<Array>} Un arreglo con el historial.
+ */
 async function obtenerHistorial() {
     const zonas = await obtenerZonas();
     const historial = [];
@@ -66,7 +82,9 @@ async function obtenerHistorial() {
     return historial;
 }
 
-// Función para mostrar el historial en la tabla
+/**
+ * Función para mostrar el historial en la tabla.
+ */
 async function mostrarHistorial() {
     const historial = await obtenerHistorial();
     const tablaBody = document.querySelector('#historialTable tbody');
@@ -99,7 +117,11 @@ async function mostrarHistorial() {
     });
 }
 
-// Función para aplicar filtros
+/**
+ * Función para aplicar filtros al historial.
+ * @param {Array} historial - Arreglo del historial completo.
+ * @returns {Array} Historial filtrado.
+ */
 function aplicarFiltros(historial) {
     const fechaInicio = document.getElementById('fechaInicio').value;
     const fechaFin = document.getElementById('fechaFin').value;
@@ -129,7 +151,7 @@ function aplicarFiltros(historial) {
     });
 }
 
-// Evento para el botón de filtrar
+// Evento para el botón de filtrar.
 document.getElementById('filtrarBtn').addEventListener('click', async () => {
     const historial = await obtenerHistorial();
     const historialFiltrado = aplicarFiltros(historial);
@@ -164,7 +186,7 @@ document.getElementById('filtrarBtn').addEventListener('click', async () => {
     });
 });
 
-// Inicializar
+// Inicializar al cargar la página.
 document.addEventListener('DOMContentLoaded', async () => {
     verificarSesion();
     await cargarZonas();

@@ -1,6 +1,7 @@
 :root {
-    --primary-color: #008033; /* Verde SENA */
-    --secondary-color: #F58220; /* Naranja SENA */
+    --primary-color: #39A900; /* Verde SENA */
+    --secondary-color: #002240; /* Azul SENA */
+    --terciary-color: #668493;
     --background-color: #FFFFFF;
     --text-color: #333333;
     --input-border: #CCCCCC;
@@ -105,19 +106,19 @@ button {
 }
 
 button:first-child {
-    background-color: #FFC107;
+    background-color: var(--secondary-color);
 }
 
 button:first-child:hover {
-    background-color: #E0A800;
+    background-color: var(--terciary-color);
 }
 
 button:last-child {
-    background-color: #DC3545;
+    background-color: var(--primary-color);
 }
 
 button:last-child:hover {
-    background-color: #C82333;
+    background-color: var(--terciary-color);
 }
 
 /* Tabla */
@@ -171,8 +172,29 @@ button:last-child:hover {
     font-size: 16px;
     border-radius: 5px;
     transition: background-color 0.3s;
+     width: 100%;
+
 }
 
 .zonas__filter-button:hover {
     background-color: var(--button-hover-bg);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-rows: auto 1fr; /* Dos filas, la segunda ocupa el espacio restante */
+    gap: 20px; /* Espacio entre los items */
+}
+
+.item {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* La tabla ocupa ambas columnas en la segunda fila */
+.item3 {
+    grid-column: span 2; /* Ocupa ambas columnas */
 }

@@ -17,11 +17,14 @@ body {
 
 .casilleros {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center; /* Centrar horizontalmente */
     min-height: 100vh; /* Ocupa al menos el alto de la ventana */
     padding: 20px;
     box-sizing: border-box;
+    justify-content: center;
+
 }
 
 .casilleros__title {

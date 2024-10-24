@@ -10,10 +10,10 @@
     <button id="btnvolver" class="casilleros__button">Volver</button>
     <h1 class="casilleros__title">Administrar Casilleros</h1>
 
-    <div class="casilleros__container">
+    <div class="casilleros__container grid-container">
 
       <!-- Formulario para agregar casilleros -->
-      <div class="casilleros__form">
+      <div class="casilleros__form item item1">
         <form id="agregarCasillerosForm">
           <h2>Agregar Casilleros</h2>
           <label for="zona-select">Selecciona una Zona:</label>
@@ -31,7 +31,7 @@
       </div>
 
       <!-- Área de filtros -->
-      <div class="casilleros__filters">
+      <div class="casilleros__filters item item2">
         <h2>Filtrar Casilleros</h2>
         <label for="filtro-zona">Zona:</label>
         <select id="filtro-zona">
@@ -52,8 +52,8 @@
         <button id="filtrar-btn" class="casilleros__filter-button">Filtrar</button>
       </div>
 
-      <!-- Lista de casilleros existentes -->
-      <div class="casilleros__list">
+      <!-- Lista de casilleros existentes que ocupa las dos columnas -->
+      <div class="casilleros__list item item3">
         <h2>Casilleros Existentes</h2>
         <table id="tabla-casilleros">
           <thead>
@@ -68,7 +68,14 @@
             <!-- Filas de casilleros se cargarán dinámicamente -->
           </tbody>
         </table>
+        <div id="paginador" class="paginador">
+          <button id="btnAnterior" class="paginador__button" disabled>Anterior</button>
+          <span id="numeroPagina"></span>
+          <button id="btnSiguiente" class="paginador__button">Siguiente</button>
+        </div>
       </div>
+
+
 
     </div>
   </div>

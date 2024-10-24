@@ -1,6 +1,26 @@
+// admin_estudiantes.js
+
 import { apiUrl } from './config.js';
 
-// Función para obtener los estudiantes desde el servidor
+/**
+ * Función para verificar si el usuario ha iniciado sesión y tiene permisos de administrador.
+ */
+function verificarSesion() {
+    const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+    if (!usuario) {
+        window.location.href = 'index.html';
+    } else {
+        if (usuario.roleId !== 2) {
+            alert("No tienes permiso para acceder a esta sección.");
+            window.location.href = 'zonas.html';
+        }
+    }
+}
+
+/**
+ * Función para obtener los estudiantes desde el servidor.
+ * @returns {Promise<Array>} Un arreglo de estudiantes.
+ */
 async function obtenerEstudiantes() {
     try {
         const response = await fetch(`${apiUrl}/users`);
@@ -15,17 +35,20 @@ async function obtenerEstudiantes() {
             throw new Error('No se encontraron estudiantes en la respuesta');
         }
 
-        return data; // Devuelve los estudiantes obtenidos
+        return data; // Devuelve los estudiantes obtenidos.
     } catch (error) {
         console.error('Error al obtener los estudiantes:', error);
         throw error;
     }
 }
 
-// Función para mostrar los estudiantes en la tabla
+/**
+ * Función para mostrar los estudiantes en la tabla.
+ * @param {Array} estudiantes - Arreglo de estudiantes a mostrar.
+ */
 function mostrarEstudiantes(estudiantes) {
     const tabla = document.getElementById("tablaEstudiantes");
-    tabla.innerHTML = ''; // Limpiar la tabla antes de mostrar los resultados
+    tabla.innerHTML = ''; // Limpiar la tabla antes de mostrar los resultados.
 
     estudiantes.forEach(estudiante => {
         const fila = document.createElement("tr");
@@ -58,7 +81,9 @@ function mostrarEstudiantes(estudiantes) {
     });
 }
 
-// Función para filtrar los estudiantes según los criterios seleccionados
+/**
+ * Función para filtrar los estudiantes según los criterios seleccionados.
+ */
 function filtrarEstudiantes() {
     const filtroSeleccionado = document.getElementById('filtroSeleccionado').value.toLowerCase();
     const valorFiltro = document.getElementById('valorFiltro').value.toLowerCase();
@@ -75,15 +100,15 @@ function filtrarEstudiantes() {
     });
 }
 
-// Añadir evento al botón de filtrar
+// Evento para el botón de filtrar.
 document.getElementById('filtrarBtn').addEventListener('click', filtrarEstudiantes);
 
-// Mostrar todos los estudiantes al cargar la página
+// Inicializar al cargar la página.
 document.addEventListener('DOMContentLoaded', () => {
+    verificarSesion();
     obtenerEstudiantes().then(mostrarEstudiantes);
-});
 
-
-document.getElementById('btnvolver').addEventListener('click', function() {
-    window.location.href = 'menu.html';
+    document.getElementById('btnvolver').addEventListener('click', function() {
+        window.location.href = 'menu.html';
+    });
 });

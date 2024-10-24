@@ -19,6 +19,7 @@ body {
 
 .zonas {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center; /* Centrar horizontalmente */
     justify-content: center; /* Centrar verticalmente */

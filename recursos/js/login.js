@@ -18,6 +18,7 @@ document.getElementById("login__formulario").addEventListener("submit", async fu
     let documento = document.getElementById("Documento").value;
     let contrasena = document.getElementById("password").value;
 
+    // Validaciones básicas del formulario
     if (tipoDocumento === "") {
         warnings += "Seleccione un tipo de documento.\n";
         entrar = true;
@@ -37,9 +38,14 @@ document.getElementById("login__formulario").addEventListener("submit", async fu
         mostrarMensaje("error", warnings);
     } else {
         try {
+            // Llamada al servidor para obtener usuarios
             const response = await fetch(`${apiUrl}/users`);
+            if (!response.ok) {
+                throw new Error('Error en la solicitud al servidor');
+            }
             const data = await response.json();
 
+            // Buscar al usuario por tipo de documento, documento y contraseña
             let usuario = data.find(user => 
                 user.tipoDocumento === tipoDocumento &&
                 user.documento === documento &&
@@ -47,13 +53,17 @@ document.getElementById("login__formulario").addEventListener("submit", async fu
             );
 
             if (usuario) {
-                localStorage.setItem('usuario', JSON.stringify(usuario));
-                localStorage.setItem('documentoUsuario', usuario.documento);
+                // Guardar usuario en sessionStorage (solo durante la sesión)
+                sessionStorage.setItem('usuario', JSON.stringify(usuario));
+                sessionStorage.setItem('documentoUsuario', usuario.documento);
 
+                // Redirección según el roleId del usuario
                 if (usuario.roleId === 2) {
-                    window.location.href = 'menu.html';
+                    window.location.href = 'menu.html'; // Rol administrador
                 } else if (usuario.roleId === 1) {
-                    window.location.href = 'zonas.html';
+                    window.location.href = 'zonas.html'; // Rol usuario común
+                } else {
+                    mostrarMensaje("error", "No tiene permiso para acceder a esta sección.");
                 }
             } else {
                 mostrarMensaje("error", "Documento, tipo o contraseña incorrectos.");

@@ -1,15 +1,41 @@
+// admin_reportes.js
+
 import { apiUrl } from './config.js';
 
-// Función para obtener todas las zonas
-async function obtenerZonas() {
-    const response = await fetch(`${apiUrl}/zonas`);
-    if (!response.ok) {
-        throw new Error('Error al obtener las zonas');
+/**
+ * Función para verificar si el usuario ha iniciado sesión y tiene permisos de administrador.
+ */
+function verificarSesion() {
+    const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+    if (!usuario) {
+        window.location.href = 'index.html';
+    } else {
+        if (usuario.roleId !== 2) {
+            alert("No tienes permiso para acceder a esta sección.");
+            window.location.href = 'zonas.html';
+        }
     }
-    return await response.json();
 }
 
-// Función para obtener los reportes
+/**
+ * Función para obtener todas las zonas.
+ * @returns {Promise<Array>} Un arreglo de zonas.
+ */
+async function obtenerZonas() {
+    try {
+        const response = await fetch(`${apiUrl}/zonas`);
+        if (!response.ok) throw new Error('Error al obtener las zonas');
+        return await response.json();
+    } catch (error) {
+        console.error('Error al obtener las zonas:', error);
+        return [];
+    }
+}
+
+/**
+ * Función para obtener los reportes de los casilleros.
+ * @returns {Promise<Array>} Un arreglo de reportes.
+ */
 async function obtenerReportes() {
     const zonas = await obtenerZonas();
     const reportes = [];
@@ -33,7 +59,9 @@ async function obtenerReportes() {
     return reportes;
 }
 
-// Función para mostrar los reportes en la tabla
+/**
+ * Función para mostrar los reportes en la tabla.
+ */
 async function mostrarReportes() {
     const reportes = await obtenerReportes();
     const tablaBody = document.querySelector('#reportesTable tbody');
@@ -66,10 +94,12 @@ async function mostrarReportes() {
     });
 }
 
-// Inicializar
-mostrarReportes();
+// Inicializar al cargar la página.
+document.addEventListener('DOMContentLoaded', () => {
+    verificarSesion();
+    mostrarReportes();
 
-
-document.getElementById('btnvolver').addEventListener('click', function() {
-    window.location.href = 'menu.html';
+    document.getElementById('btnvolver').addEventListener('click', function() {
+        window.location.href = 'menu.html';
+    });
 });

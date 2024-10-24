@@ -10,9 +10,9 @@
         <button id="btnvolver" class="zonas__button">Volver</button>
         <h1 class="zonas__title">Administrar Zonas</h1>
 
-        <div class="zonas__container">
+        <div class="zonas__container grid-container">
             <!-- Formulario para agregar zonas -->
-            <div class="zonas__form">
+            <div class="zonas__form item item1">
                 <h2>Agregar Zona</h2>
                 <form id="zona-form">
                     <label for="zona-nombre">Nombre de la Zona:</label>
@@ -28,7 +28,7 @@
             </div>
 
             <!-- Área de filtros -->
-            <div class="zonas__filters">
+            <div class="zonas__filters item item2">
                 <h2>Filtrar Zonas</h2>
                 <label for="filtro-nombre">Nombre de la Zona:</label>
                 <input type="text" id="filtro-nombre">
@@ -39,8 +39,8 @@
                 <button id="filtrar-btn" class="zonas__filter-button">Filtrar</button>
             </div>
 
-            <!-- Lista de zonas existentes -->
-            <div class="zonas__list">
+            <!-- Lista de zonas existentes que ocupa las dos columnas -->
+            <div class="zonas__list item item3">
                 <h2>Zonas Existentes</h2>
                 <table id="tabla-zonas" class="zonas__table">
                     <thead>

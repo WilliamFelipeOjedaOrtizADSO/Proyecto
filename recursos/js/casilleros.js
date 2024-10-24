@@ -1,5 +1,8 @@
 import { apiUrl } from './config.js';
 
+const cerrarSesionButton = document.querySelector('#cerrar-sesion');
+
+
 // Función para obtener el parámetro zonaId de la URL
 function obtenerZonaId() {
     const params = new URLSearchParams(window.location.search);
@@ -136,28 +139,149 @@ async function mostrarCasilleros() {
         const errorMessage = document.createElement("p");
         errorMessage.textContent = "Hubo un problema al mostrar los casilleros.";
 
+        
         const contenedorCasilleros = document.getElementById("casilleros-container");
         contenedorCasilleros.innerHTML = '';
         contenedorCasilleros.appendChild(errorMessage);
     }
 }
 
-// Resto del código permanece igual...
-
 // Función para reservar un casillero
 async function reservarCasillero(zonaId, casilleroCodigo, documentoUsuario) {
-    // ... tu código existente
+    try {
+        // Obtener la zona completa
+        const zona = await obtenerZona(zonaId);
+
+        // Encontrar el casillero a actualizar
+        const casillero = zona.casilleros.find(c => c.codigo === casilleroCodigo);
+
+        if (casillero) {
+            // Actualizar el casillero
+            casillero.ocupado = true;
+            casillero.usuario = documentoUsuario;
+            casillero.fechaOcupacion = new Date().toISOString();
+
+            // Añadir entrada al historial
+            if (!casillero.historial) {
+                casillero.historial = [];
+            }
+            casillero.historial.push({
+                usuario: documentoUsuario,
+                nombreUsuario: obtenerNombreUsuario(documentoUsuario),
+                fechaIngreso: casillero.fechaOcupacion,
+                fechaLiberacion: null
+            });
+
+            // Actualizar la zona en el servidor
+            const response = await fetch(`${apiUrl}/zonas/${zonaId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(zona)
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al actualizar el casillero');
+            }
+        }
+    } catch (error) {
+        console.error('Error al reservar el casillero:', error);
+        throw error;
+    }
 }
 
 // Función para liberar un casillero
 async function liberarCasillero(zonaId, casilleroCodigo) {
-    // ... tu código existente
+    try {
+        // Obtener la zona completa
+        const zona = await obtenerZona(zonaId);
+
+        // Encontrar el casillero a actualizar
+        const casillero = zona.casilleros.find(c => c.codigo === casilleroCodigo);
+
+        if (casillero) {
+            // Actualizar el casillero
+            casillero.ocupado = false;
+            casillero.usuario = "";
+            const fechaLiberacion = new Date().toISOString();
+
+            // Actualizar el historial
+            if (casillero.historial && casillero.historial.length > 0) {
+                // Encontrar la última entrada donde la fecha de liberación es null
+                const ultimaEntrada = [...casillero.historial].reverse().find(entry => entry.fechaLiberacion === null);
+                if (ultimaEntrada) {
+                    ultimaEntrada.fechaLiberacion = fechaLiberacion;
+                }
+            }
+
+            casillero.fechaOcupacion = "";
+
+            // Actualizar la zona en el servidor
+            const response = await fetch(`${apiUrl}/zonas/${zonaId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(zona)
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al liberar el casillero');
+            }
+        }
+    } catch (error) {
+        console.error('Error al liberar el casillero:', error);
+        throw error;
+    }
 }
 
 // Función para verificar casilleros ocupados por más de 12 horas
 async function verificarCasilleros() {
-    // ... tu código existente
-}
+    const zonas = await obtenerZonas();
+
+    const ahora = new Date();
+
+    zonas.forEach(async zona => {
+        let hayCambios = false;
+        zona.casilleros.forEach(casillero => {
+            if (casillero.ocupado && casillero.fechaOcupacion) {
+                const fechaOcupacion = new Date(casillero.fechaOcupacion);
+                const diferenciaHoras = (ahora - fechaOcupacion) / (1000 * 60 * 60);
+                if (diferenciaHoras > 12 && !casillero.reportado) {
+                    // Generar reporte
+                    if (!casillero.reportes) {
+                        casillero.reportes = [];
+                    }
+                    casillero.reportes.push({
+                        fechaReporte: ahora.toISOString(),
+                        motivo: 'Casillero ocupado por más de 12 horas',
+                        usuario: casillero.usuario,
+                        nombreUsuario: obtenerNombreUsuario(casillero.usuario)
+                    });
+                    // Marcar como reportado para no generar múltiples reportes
+                    casillero.reportado = true;
+                    hayCambios = true;
+                }
+            }
+        });
+
+        if (hayCambios) {
+            // Actualizar la zona en el servidor
+            const response = await fetch(`${apiUrl}/zonas/${zona.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(zona)
+            });
+
+            if (!response.ok) {
+                console.error('Error al actualizar la zona:', response.statusText);
+            }
+        }
+    });
+} 
 
 document.getElementById('cerrar-sesion').addEventListener('click', function() {
     window.location.href = 'index.html';
@@ -170,8 +294,30 @@ setInterval(verificarCasilleros, 60 * 60 * 1000);
 verificarCasilleros();
 
 // Llamar a la función para mostrar los casilleros cuando se carga la página
-document.addEventListener('DOMContentLoaded', mostrarCasilleros);
+document.addEventListener('DOMContentLoaded', () =>{ 
+    verificarAcceso();
+    mostrarCasilleros();
+});
 
 document.getElementById('btnvolver').addEventListener('click', function() {
     window.location.href = 'zonas.html';
 });
+
+if (cerrarSesionButton) {
+    cerrarSesionButton.addEventListener('click', function() {
+        window.location.href = 'index.html';
+        localStorage.removeItem('documentoUsuario');
+        localStorage.removeItem('usuario');
+        console.log("cerrando sesion");
+    });
+}
+
+function verificarAcceso() {
+    const documentoUsuario = localStorage.getItem('documentoUsuario');
+    if (!documentoUsuario) {
+        // Si no hay documento, redirigir al login
+        window.location.href = 'index.html';
+    }
+}
+
+// Verificar acceso al cargar la página

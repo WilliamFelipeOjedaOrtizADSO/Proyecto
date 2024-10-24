@@ -1,12 +1,13 @@
 :root {
-    --primary-color: #008033;
-    --secondary-color: #F58220;
+    --primary-color: #39A900; /* Verde SENA */
+    --secondary-color: #002240; /* Azul SENA */
+    --terciary-color: #668493;
     --background-color: #FFFFFF;
     --text-color: #333333;
     --input-border: #CCCCCC;
     --button-bg: #F58220;
     --button-hover-bg: #D9731E;
-    --table-header-bg: #008033;
+    --table-header-bg: #39A900;
     --table-header-text: #FFFFFF;
 }
 
@@ -135,19 +136,19 @@ button {
 }
 
 button:first-child {
-    background-color: #FFC107;
+    background-color: var(--secondary-color);
 }
 
 button:first-child:hover {
-    background-color: #E0A800;
+    background-color: var(--terciary-color);
 }
 
 button:last-child {
-    background-color: #DC3545;
+    background-color: var(--primary-color);
 }
 
 button:last-child:hover {
-    background-color: #C82333;
+    background-color: #1d7915;
 }
 
 /* Filtros */
@@ -178,4 +179,45 @@ button:last-child:hover {
 
 .casilleros__filter-button:hover {
     background-color: var(--button-hover-bg);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-rows: auto 1fr; /* Dos filas, la segunda ocupa el espacio restante */
+    gap: 20px; /* Espacio entre los items */
+}
+
+.item {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* La tabla ocupa ambas columnas en la segunda fila */
+.item3 {
+    grid-column: span 2; /* Ocupa ambas columnas */
+}
+
+.paginador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.paginador__button {
+    margin: 0 10px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.paginador__button:disabled {
+    background-color: #ddd; /* Color para el botón deshabilitado */
+    cursor: not-allowed;
 }

@@ -63,6 +63,8 @@ async function mostrarZonas() {
     }
 }
 
+
+
 // Llamar a la función para mostrar las zonas cuando se carga la página
 document.addEventListener('DOMContentLoaded', mostrarZonas);
 
@@ -74,3 +76,21 @@ document.getElementById('cerrar-sesion').addEventListener('click', function() {
     // Redirigir al login
     window.location.href = 'index.html';
 });
+
+
+// Función para verificar si el usuario ha iniciado sesión
+function verificarSesion() {
+    const documentoUsuario = localStorage.getItem('documentoUsuario');
+    if (!documentoUsuario) {
+        // Si no hay usuario en sesión, redirigir al login
+        window.location.href = 'index.html';
+    }
+
+}
+
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+    verificarSesion();
+    
+    });
