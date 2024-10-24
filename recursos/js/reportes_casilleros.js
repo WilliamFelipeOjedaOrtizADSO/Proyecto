@@ -12,6 +12,8 @@ function verificarSesion() {
     } else {
         if (usuario.roleId !== 2) {
             alert("No tienes permiso para acceder a esta sección.");
+            sessionStorage.removeItem('usuario');
+            sessionStorage.removeItem('documentoUsuario');
             window.location.href = 'zonas.html';
         }
     }

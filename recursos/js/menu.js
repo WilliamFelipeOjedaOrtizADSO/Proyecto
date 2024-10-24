@@ -9,6 +9,8 @@ function verificarAcceso() {
         // Verificar el roleId para asegurarse de que el usuario tenga acceso al menú de administrador
         if (usuario.roleId !== 2) { // 2 representa el rol de administrador en este caso
             alert("No tienes permiso para acceder a esta sección.");
+            sessionStorage.removeItem('usuario');
+            sessionStorage.removeItem('documentoUsuario');
             window.location.href = 'zonas.html'; // Redirigir a otra página si no es administrador
         }
     }

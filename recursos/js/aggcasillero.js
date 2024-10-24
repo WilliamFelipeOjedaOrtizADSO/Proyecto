@@ -18,6 +18,8 @@ function verificarSesion() {
         // Verificar si el usuario tiene rol de administrador (roleId === 2).
         if (usuario.roleId !== 2) {
             alert("No tienes permiso para acceder a esta sección.");
+            sessionStorage.removeItem('usuario');
+            sessionStorage.removeItem('documentoUsuario');
             window.location.href = 'zonas.html'; // Redirigir si no es administrador.
         }
     }

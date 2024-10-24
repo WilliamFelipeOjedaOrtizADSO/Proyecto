@@ -80,7 +80,7 @@ document.getElementById('cerrar-sesion').addEventListener('click', function() {
 
 // Función para verificar si el usuario ha iniciado sesión
 function verificarSesion() {
-    const documentoUsuario = localStorage.getItem('documentoUsuario');
+    const documentoUsuario = sessionStorage.getItem('documentoUsuario');
     if (!documentoUsuario) {
         // Si no hay usuario en sesión, redirigir al login
         window.location.href = 'index.html';
