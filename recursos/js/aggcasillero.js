@@ -10,19 +10,50 @@ let casillerosFiltrados = []; // Arreglo para almacenar los casilleros filtrados
  * Función para verificar si el usuario ha iniciado sesión y tiene permisos de administrador.
  */
 function verificarSesion() {
-    const usuario = JSON.parse(sessionStorage.getItem('usuario'));
-    if (!usuario) {
-        // Si no hay un usuario en sesión, redirigir al login.
-        window.location.href = 'index.html';
-    } else {
-        // Verificar si el usuario tiene rol de administrador (roleId === 2).
-        if (usuario.roleId !== 2) {
-            alert("No tienes permiso para acceder a esta sección.");
-            sessionStorage.removeItem('usuario');
-            sessionStorage.removeItem('documentoUsuario');
-            window.location.href = 'zonas.html'; // Redirigir si no es administrador.
+  const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+
+  if (!usuario) {
+    // Si no hay un usuario en sessionStorage, redirigir al login
+    window.location.href = 'index.html';
+  } else {
+    // Verificar el roleId para asegurarse de que el usuario tenga acceso al menú de administrador
+    if (usuario.roleId !== 2) { // 2 representa el rol de administrador en este caso
+      Swal.fire({
+        title: "Acceso Denegado",
+        text: "No tienes permiso para acceder a esta sección. Serás redirigido nuevamente a tu sesión",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Volver a mi Sesión"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Redirigiendo...",
+            text: "Serás llevado a tu sesión.",
+            icon: "success",
+            timer: 2000,
+            willClose: () => {
+              window.location.href = 'zonas.html';
+            }
+          });
+        } else {
+
+          cerrarSesion();
         }
+      });
+
+      function cerrarSesion() {
+
+        window.location.href = 'index.html';
+        sessionStorage.removeItem('usuario');
+        sessionStorage.removeItem('documentoUsuario');
+        console.log("Cerrando sesión");
+      }
+
+
     }
+  }
 }
 
 /**

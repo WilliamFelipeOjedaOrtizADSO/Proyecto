@@ -8,10 +8,40 @@ function verificarAcceso() {
     } else {
         // Verificar el roleId para asegurarse de que el usuario tenga acceso al menú de administrador
         if (usuario.roleId !== 2) { // 2 representa el rol de administrador en este caso
-            alert("No tienes permiso para acceder a esta sección.");
+          Swal.fire({
+            title: "Acceso Denegado",
+            text: "No tienes permiso para acceder a esta sección. Serás redirigido nuevamente a tu sesión",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Volver a mi Sesión"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Redirigiendo...",
+                text: "Serás llevado a tu sesión.",
+                icon: "success",
+                timer: 2000, 
+                willClose: () => {
+                  window.location.href = 'zonas.html';
+                }
+              });
+            } else {
+              
+              cerrarSesion(); 
+            }
+          });
+
+          function cerrarSesion() {
+          
+            window.location.href = 'index.html';
             sessionStorage.removeItem('usuario');
             sessionStorage.removeItem('documentoUsuario');
-            window.location.href = 'zonas.html'; // Redirigir a otra página si no es administrador
+            console.log("Cerrando sesión");
+          }
+
+
         }
     }
 }

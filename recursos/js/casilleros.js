@@ -320,4 +320,3 @@ function verificarAcceso() {
     }
 }
 
-// Verificar acceso al cargar la página
